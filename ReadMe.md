@@ -110,16 +110,16 @@ instructions on the related library web-sites. This may include that
 you have to care about dependencies by yourself. Ie. for Gtk-3.0.bi
 you'll also need further binaries like GLib-2.0, Pango-1.0, Gdk-3.0 and
 others. Take care that you install matching versions! (Nice guys made
-installers for Gtk, handling this stuff.)
+bundle installers for Gtk, handling this stuff.)
 
-Once the binyries are installed, you just have to place the headers
-folder (named Gir) in the FreeBASIC include path. All headers have to
-be in one folder, you must not rename or delete any file (GI demand)!
-The location of the FreeBASIC include path depends on your compiler
-installation, try
+Once the binaries are installed, you can benefit from this project.
+Just place the headers folder (named Gir) in the FreeBASIC include
+path. All headers have to be in one folder, you must not rename nor
+delete any file (GI demand)! The location of the FreeBASIC include path
+depends on your compiler installation, try
 
     /usr/local/include/freebasic    # LINUX
-    C:\programs\freebasic\include   # win
+    C:\programs\freebasic\inc       # win
 
 Finally to make FB compile and link against the library, you add a
 line at the beginning of your source code
