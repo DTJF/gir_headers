@@ -1,0 +1,64 @@
+'       FreeBasic header file, manual-generated file
+'              containing types for GLib-2.0
+' LGPLv2.1 (C) 2014-2016 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
+
+TYPE AS  ZSTRING gchar, char
+TYPE AS     BYTE gint8
+TYPE AS    UBYTE guint8, guchar
+TYPE AS    SHORT gint16, gshort, gunichar2
+TYPE AS   USHORT guint16, gushort
+TYPE AS     LONG gint, gint32, gunichar
+TYPE AS    ULONG guint, guint32, gboolean ', GType
+
+TYPE AS  LONGINT gint64, glong
+TYPE AS ULONGINT guint64, gulong
+TYPE AS   SINGLE gfloat
+TYPE AS   DOUBLE gdouble
+TYPE AS  INTEGER gssize, ssize_t, goffset
+TYPE AS UINTEGER gsize, size_t
+
+TYPE AS   ZSTRING PTR utf8, filename
+TYPE AS       ANY PTR gpointer, va_list
+TYPE AS CONST ANY PTR gconstpointer
+
+#IFNDEF NULL
+#DEFINE NULL CAST(ANY PTR, 0)
+#ENDIF
+#IFNDEF FALSE
+#DEFINE FALSE 0
+#ENDIF
+#IFNDEF TRUE
+#DEFINE TRUE 1 ''NOT FALSE
+#ENDIF
+
+#IFDEF __FB_64BIT__
+#DEFINE G_MININT G_MININT64
+#DEFINE G_MAXINT G_MAXINT64
+#DEFINE G_MAXUINT G_MAXUINT64
+#ELSE
+#DEFINE G_MININT G_MININT32
+#DEFINE G_MAXINT G_MAXINT32
+#DEFINE G_MAXUINT G_MAXUINT32
+#ENDIF
+
+#DEFINE G_TYPE_CHECK_INSTANCE_CAST(instance, g_type, c_type) (_G_TYPE_CIC ((instance), (g_type), c_type))
+#DEFINE G_TYPE_CHECK_CLASS_CAST(g_class, g_type, c_type) (_G_TYPE_CCC ((g_class), (g_type), c_type))
+#DEFINE G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type) (_G_TYPE_CIT ((instance), (g_type)))
+#DEFINE G_TYPE_INSTANCE_GET_INTERFACE(instance, g_type, c_type) (_G_TYPE_IGI ((instance), (g_type), c_type))
+#DEFINE G_TYPE_CHECK_CLASS_TYPE(g_class, g_type) (_G_TYPE_CCT ((g_class), (g_type)))
+#DEFINE G_TYPE_INSTANCE_GET_CLASS(instance, g_type, c_type) (_G_TYPE_IGC ((instance), (g_type), c_type))
+
+#IFNDEF G_DISABLE_CAST_CHECKS
+#DEFINE _G_TYPE_CIC(ip, gt, ct) _
+    (CAST(ct PTR, g_type_check_instance_cast_ (CAST(GTypeInstance PTR, ip), gt)))
+#DEFINE _G_TYPE_CCC(cp, gt, ct) _
+    (CAST(ct PTR, g_type_check_class_cast_ (CAST(GTypeClass PTR, cp), gt)))
+#ELSE ' G_DISABLE_CAST_CHECKS
+#DEFINE _G_TYPE_CIC(ip, gt, ct) (CAST(ct PTR, ip))
+#DEFINE _G_TYPE_CCC(cp, gt, ct) (CAST(ct PTR, cp))
+#ENDIF ' G_DISABLE_CAST_CHECKS
+
+#DEFINE _G_TYPE_CIT(ip, gt) (g_type_check_instance_is_a (CAST(GTypeInstance PTR, ip), gt))
+#DEFINE _G_TYPE_CCT(cp, gt) (g_type_check_class_is_a (CAST(GTypeClass PTR, cp), gt))
+#DEFINE _G_TYPE_IGI(ip, gt, ct) (CAST(ct PTR, g_type_interface_peek ((CAST(GTypeInstance PTR, ip))->g_class, gt)))
+#DEFINE _G_TYPE_IGC(ip, gt, ct) (CAST(ct PTR, ((CAST(GTypeInstance PTR, ip))->g_class)))
