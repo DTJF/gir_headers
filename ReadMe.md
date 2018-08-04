@@ -1,7 +1,8 @@
 Welcome to *gir_header* project,
 
 - a set of header files to bind different libraries to FreeBASIC code,
-- following the GObject Introspection concept.
+- following the [GObject Introspection
+(GI)](https://wiki.gnome.org/Projects/GObjectIntrospection) concept.
 
 It's designed for easy handling an easy updating.
 
