@@ -73,6 +73,7 @@ Contents
 | PangoFT2-1.0.bi       |         |       |
 | PangoXft-1.0.bi       |         |       |
 | win32-1.0.bi          |         |       |
+| WebKit-3.0.bi         | 2.11.4  |       |
 | xfixes-4.0.bi         |         |       |
 | xft-2.0.bi            |         |       |
 | xlib-2.0.bi           |         |       |
