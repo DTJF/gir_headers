@@ -24,7 +24,7 @@ will get added by time.
 Licence:
 ========
 
-Copyright &copy; 2014-2018 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
+Copyright &copy; 2014-2019 by `Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net`
 
 This project is free software; you can redistribute it and/or modify it
 under the terms of the Lesser GNU General Public License version 2 as
