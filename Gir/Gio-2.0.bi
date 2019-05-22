@@ -5288,8 +5288,6 @@ DECLARE FUNCTION g_resources_enumerate_children(BYVAL AS const char PTR, BYVAL A
 DECLARE FUNCTION g_resources_get_info(BYVAL AS const char PTR, BYVAL AS GResourceLookupFlags, BYVAL AS gsize PTR, BYVAL AS guint32 PTR, BYVAL AS GError PTR PTR) AS gboolean
 DECLARE FUNCTION g_resources_lookup_data(BYVAL AS const char PTR, BYVAL AS GResourceLookupFlags, BYVAL AS GError PTR PTR) AS GBytes PTR
 DECLARE FUNCTION g_resources_open_stream(BYVAL AS const char PTR, BYVAL AS GResourceLookupFlags, BYVAL AS GError PTR PTR) AS GInputStream PTR
-DECLARE SUB g_resources_register(BYVAL AS GResource PTR)
-DECLARE SUB g_resources_unregister(BYVAL AS GResource PTR)
 DECLARE SUB g_simple_async_report_error_in_idle(BYVAL AS GObject PTR, BYVAL AS GAsyncReadyCallback, BYVAL AS gpointer, BYVAL AS GQuark, BYVAL AS gint, BYVAL AS const char PTR, ...)
 DECLARE SUB g_simple_async_report_gerror_in_idle(BYVAL AS GObject PTR, BYVAL AS GAsyncReadyCallback, BYVAL AS gpointer, BYVAL AS const GError PTR)
 DECLARE SUB g_simple_async_report_take_gerror_in_idle(BYVAL AS GObject PTR, BYVAL AS GAsyncReadyCallback, BYVAL AS gpointer, BYVAL AS GError PTR)

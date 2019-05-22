@@ -477,7 +477,6 @@ DECLARE SUB hb_face_set_index(BYVAL AS hb_face_t PTR, BYVAL AS guint /'unsigned 
 DECLARE SUB hb_face_set_upem(BYVAL AS hb_face_t PTR, BYVAL AS guint /'unsigned int'/)
 DECLARE FUNCTION hb_face_set_user_data(BYVAL AS hb_face_t PTR, BYVAL AS hb_user_data_key_t PTR, BYVAL AS any /'void'/ PTR, BYVAL AS hb_destroy_func_t, BYVAL AS hb_bool_t) AS hb_bool_t
 DECLARE FUNCTION hb_feature_from_string(BYVAL AS char PTR, BYVAL AS gint /'int'/, BYVAL AS hb_feature_t PTR) AS hb_bool_t
-DECLARE SUB hb_feature_to_string(BYVAL AS hb_feature_t PTR, BYVAL AS char PTR, BYVAL AS guint /'unsigned int'/)
 DECLARE SUB hb_font_add_glyph_origin_for_direction(BYVAL AS hb_font_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS hb_direction_t, BYVAL AS hb_position_t PTR, BYVAL AS hb_position_t PTR)
 DECLARE FUNCTION hb_font_create(BYVAL AS hb_face_t PTR) AS hb_font_t PTR
 DECLARE FUNCTION hb_font_create_sub_font(BYVAL AS hb_font_t PTR) AS hb_font_t PTR
@@ -549,7 +548,6 @@ DECLARE FUNCTION hb_graphite2_face_get_gr_face(BYVAL AS hb_face_t PTR) AS any pt
 DECLARE FUNCTION hb_graphite2_font_get_gr_font(BYVAL AS hb_font_t PTR) AS any ptr /'gr_font'/ PTR
 DECLARE FUNCTION hb_language_from_string(BYVAL AS char PTR, BYVAL AS gint /'int'/) AS hb_language_t ptr /'hb_language_t'/
 DECLARE FUNCTION hb_language_get_default() AS hb_language_t ptr /'hb_language_t'/
-DECLARE FUNCTION hb_language_to_string(BYVAL AS hb_language_t ptr /'hb_language_t'/) AS const gchar /'const char'/ PTR
 DECLARE SUB hb_ot_font_set_funcs(BYVAL AS hb_font_t PTR)
 DECLARE SUB hb_ot_layout_collect_lookups(BYVAL AS hb_face_t PTR, BYVAL AS hb_tag_t, BYVAL AS const hb_tag_t PTR, BYVAL AS const hb_tag_t PTR, BYVAL AS const hb_tag_t PTR, BYVAL AS hb_set_t PTR)
 DECLARE FUNCTION hb_ot_layout_feature_get_lookups(BYVAL AS hb_face_t PTR, BYVAL AS hb_tag_t, BYVAL AS guint /'unsigned int'/, BYVAL AS guint /'unsigned int'/, BYVAL AS guint /'unsigned int'/ PTR, BYVAL AS guint /'unsigned int'/ PTR) AS guint /'unsigned int'/

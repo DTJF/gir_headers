@@ -464,7 +464,7 @@ TYPE AtspiEventListenerSimpleCB AS SUB CDECL(BYVAL AS const AtspiEvent PTR)
 TYPE _AtspiAccessible
   AS AtspiObject parent
   AS AtspiAccessible PTR accessible_parent
-  AS AtspiAccessible children
+  AS GPtrArray PTR children
   AS AtspiRole role
   AS gint interfaces
   AS char PTR name
@@ -745,7 +745,7 @@ TYPE _AtspiMatchRule
   AS AtspiCollectionMatchType statematchtype
   AS GHashTable PTR attributes
   AS AtspiCollectionMatchType attributematchtype
-  AS AtspiCollectionMatchType interfaces
+  AS GArray PTR interfaces
   AS AtspiCollectionMatchType interfacematchtype
   AS gint roles(3)
   AS AtspiCollectionMatchType rolematchtype
@@ -786,7 +786,7 @@ END TYPE
 TYPE _AtspiRelation
   AS GObject parent
   AS AtspiRelationType relation_type
-  AS AtspiRelationType targets
+  AS GArray PTR targets
 END TYPE
 DECLARE FUNCTION atspi_relation_get_type() AS GType
 #DEFINE ATSPI_TYPE_RELATION (atspi_relation_get_type())

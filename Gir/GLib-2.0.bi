@@ -2606,7 +2606,6 @@ DECLARE FUNCTION g_hostname_is_ip_address(BYVAL AS const gchar PTR) AS gboolean
 DECLARE FUNCTION g_hostname_is_non_ascii(BYVAL AS const gchar PTR) AS gboolean
 DECLARE FUNCTION g_hostname_to_ascii(BYVAL AS const gchar PTR) AS gchar PTR
 DECLARE FUNCTION g_hostname_to_unicode(BYVAL AS const gchar PTR) AS gchar PTR
-DECLARE FUNCTION g_iconv(BYVAL AS GIConv PTR /'GIConv'/, BYVAL AS gchar PTR PTR, BYVAL AS gsize PTR, BYVAL AS gchar PTR PTR, BYVAL AS gsize PTR) AS gsize
 DECLARE FUNCTION g_idle_add(BYVAL AS GSourceFunc, BYVAL AS gpointer) AS guint
 DECLARE FUNCTION g_idle_add_full(BYVAL AS gint, BYVAL AS GSourceFunc, BYVAL AS gpointer, BYVAL AS GDestroyNotify) AS guint
 DECLARE FUNCTION g_idle_remove_by_data(BYVAL AS gpointer) AS gboolean

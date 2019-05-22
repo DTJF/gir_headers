@@ -235,7 +235,7 @@ END TYPE
 TYPE _GooCanvasItemSimpleData
   AS GooCanvasStyle PTR style
   AS cairo_matrix_t PTR transform
-  AS cairo_matrix_t clip_path_commands
+  AS GArray PTR clip_path_commands
   AS gchar PTR tooltip
   AS gdouble visibility_threshold
   AS guint visibility : 2
@@ -511,7 +511,7 @@ TYPE _GooCanvasGridModelClass
 END TYPE
 TYPE _GooCanvasGroup
   AS GooCanvasItemSimple parent_object
-  AS GooCanvasItemSimple items
+  AS GPtrArray PTR items
 END TYPE
 DECLARE FUNCTION goo_canvas_group_get_type() AS GType
 #DEFINE GOO_TYPE_CANVAS_GROUP (goo_canvas_group_get_type())
@@ -530,7 +530,7 @@ TYPE _GooCanvasGroupClass
 END TYPE
 TYPE _GooCanvasGroupModel
   AS GooCanvasItemModelSimple parent_object
-  AS GooCanvasItemModelSimple children
+  AS GPtrArray PTR children
 END TYPE
 DECLARE FUNCTION goo_canvas_group_model_get_type() AS GType
 #DEFINE GOO_TYPE_CANVAS_GROUP_MODEL (goo_canvas_group_model_get_type())
@@ -840,7 +840,7 @@ UNION GooCanvasPathCommand
   AS __G2B_GooCanvasPathCommand_arc arc
 END UNION
 TYPE _GooCanvasPathData
-  AS gdouble path_commands
+  AS GArray PTR path_commands
 END TYPE
 TYPE _GooCanvasPathModel
   AS GooCanvasItemModelSimple parent_object
@@ -978,7 +978,7 @@ END TYPE
 TYPE _GooCanvasStyle
   AS GObject parent_object
   AS GooCanvasStyle PTR parent
-  AS GooCanvasStyle properties
+  AS GArray PTR properties
 END TYPE
 DECLARE FUNCTION goo_canvas_style_get_type() AS GType
 #DEFINE GOO_TYPE_CANVAS_STYLE (goo_canvas_style_get_type())
@@ -1030,7 +1030,7 @@ TYPE _GooCanvasTableData
   AS gdouble height
   AS GooCanvasTableDimension dimensions(1)
   AS gdouble border_width
-  AS gdouble children
+  AS GArray PTR children
   AS GooCanvasTableLayoutData PTR layout_data
 END TYPE
 TYPE _GooCanvasTableModel

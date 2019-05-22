@@ -8178,7 +8178,7 @@ TYPE _GtkRcStyle
   AS GdkColor base(4)
   AS gint xthickness
   AS gint ythickness
-  AS gint rc_properties
+  AS GArray PTR rc_properties
   AS GSList PTR rc_style_lists
   AS GSList PTR icon_factories
   AS guint engine_specified : 1
@@ -9086,7 +9086,7 @@ TYPE _GtkStyle
   AS PangoFontDescription PTR private_font_desc
   AS GtkRcStyle PTR rc_style
   AS GSList PTR styles
-  AS GSList property_cache
+  AS GArray PTR property_cache
   AS GSList PTR icon_factories
 END TYPE
 DECLARE FUNCTION gtk_style_get_type() AS GType

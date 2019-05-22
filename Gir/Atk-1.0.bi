@@ -806,7 +806,7 @@ TYPE _AtkRegistryClass
 END TYPE
 TYPE _AtkRelation
   AS GObject parent
-  AS GObject target
+  AS GPtrArray PTR target
   AS AtkRelationType relationship
 END TYPE
 DECLARE FUNCTION atk_relation_get_type() AS GType
@@ -826,7 +826,7 @@ TYPE _AtkRelationClass
 END TYPE
 TYPE _AtkRelationSet
   AS GObject parent
-  AS GObject relations
+  AS GPtrArray PTR relations
 END TYPE
 DECLARE FUNCTION atk_relation_set_get_type() AS GType
 #DEFINE ATK_TYPE_RELATION_SET (atk_relation_set_get_type())
