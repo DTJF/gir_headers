@@ -27,6 +27,8 @@ EXTERN "C" LIB "cairo"
 
 ' P_3
 
+DECLARE FUNCTION cairo_gobject_content_get_type() AS GType
+#DEFINE CAIRO_TYPE_GOBJECT_CONTENT (cairo_gobject_content_get_type())
 TYPE _cairo_rectangle_int_t
   AS gint x
   AS gint y

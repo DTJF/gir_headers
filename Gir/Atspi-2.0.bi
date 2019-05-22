@@ -575,6 +575,12 @@ DECLARE FUNCTION atspi_collection_get_matches(BYVAL AS AtspiCollection PTR, BYVA
 DECLARE FUNCTION atspi_collection_get_matches_from(BYVAL AS AtspiCollection PTR, BYVAL AS AtspiAccessible PTR, BYVAL AS AtspiMatchRule PTR, BYVAL AS AtspiCollectionSortOrder, BYVAL AS AtspiCollectionTreeTraversalType, BYVAL AS gint, BYVAL AS gboolean, BYVAL AS GError PTR PTR) AS GArray PTR
 DECLARE FUNCTION atspi_collection_get_matches_to(BYVAL AS AtspiCollection PTR, BYVAL AS AtspiAccessible PTR, BYVAL AS AtspiMatchRule PTR, BYVAL AS AtspiCollectionSortOrder, BYVAL AS AtspiCollectionTreeTraversalType, BYVAL AS gboolean, BYVAL AS gint, BYVAL AS gboolean, BYVAL AS GError PTR PTR) AS GArray PTR
 DECLARE FUNCTION atspi_collection_is_ancestor_of(BYVAL AS AtspiCollection PTR, BYVAL AS AtspiAccessible PTR, BYVAL AS GError PTR PTR) AS gboolean
+DECLARE FUNCTION atspi_collection_match_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_COLLECTION_MATCH_TYPE (atspi_collection_match_type_get_type())
+DECLARE FUNCTION atspi_collection_sort_order_get_type() AS GType
+#DEFINE ATSPI_TYPE_COLLECTION_SORT_ORDER (atspi_collection_sort_order_get_type())
+DECLARE FUNCTION atspi_collection_tree_traversal_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_COLLECTION_TREE_TRAVERSAL_TYPE (atspi_collection_tree_traversal_type_get_type())
 DECLARE FUNCTION atspi_component_get_type() AS GType
 #DEFINE ATSPI_TYPE_COMPONENT (atspi_component_get_type())
 #DEFINE ATSPI_COMPONENT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATSPI_TYPE_COMPONENT, AtspiComponent))
@@ -602,6 +608,10 @@ TYPE _AtspiDeviceEvent
   AS gchar PTR event_string
   AS gboolean is_text
 END TYPE
+DECLARE FUNCTION atspi_component_layer_get_type() AS GType
+#DEFINE ATSPI_TYPE_COMPONENT_LAYER (atspi_component_layer_get_type())
+DECLARE FUNCTION atspi_coord_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_COORD_TYPE (atspi_coord_type_get_type())
 TYPE _AtspiDeviceListener
   AS GObject parent
   AS guint id
@@ -690,6 +700,8 @@ END TYPE
 TYPE _AtspiHyperlink
   AS AtspiObject parent
 END TYPE
+DECLARE FUNCTION atspi_event_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_EVENT_TYPE (atspi_event_type_get_type())
 DECLARE FUNCTION atspi_hyperlink_get_type() AS GType
 #DEFINE ATSPI_TYPE_HYPERLINK (atspi_hyperlink_get_type())
 #DEFINE ATSPI_HYPERLINK(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATSPI_TYPE_HYPERLINK, AtspiHyperlink))
@@ -739,6 +751,8 @@ TYPE _AtspiKeySet
   AS gchar PTR PTR keystrings
   AS gshort len
 END TYPE
+DECLARE FUNCTION atspi_key_event_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_KEY_EVENT_TYPE (atspi_key_event_type_get_type())
 TYPE _AtspiMatchRule
   AS GObject parent
   AS AtspiStateSet PTR states
@@ -751,6 +765,10 @@ TYPE _AtspiMatchRule
   AS AtspiCollectionMatchType rolematchtype
   AS gboolean invert
 END TYPE
+DECLARE FUNCTION atspi_key_synth_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_KEY_SYNTH_TYPE (atspi_key_synth_type_get_type())
+DECLARE FUNCTION atspi_locale_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_LOCALE_TYPE (atspi_locale_type_get_type())
 DECLARE FUNCTION atspi_match_rule_get_type() AS GType
 #DEFINE ATSPI_TYPE_MATCH_RULE (atspi_match_rule_get_type())
 #DEFINE ATSPI_MATCH_RULE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATSPI_TYPE_MATCH_RULE, AtspiMatchRule))
@@ -766,6 +784,8 @@ TYPE _AtspiPoint
   AS gint x
   AS gint y
 END TYPE
+DECLARE FUNCTION atspi_modifier_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_MODIFIER_TYPE (atspi_modifier_type_get_type())
 DECLARE FUNCTION atspi_point_copy(BYVAL AS AtspiPoint PTR) AS AtspiPoint PTR
 TYPE _AtspiRange
   AS gint start_offset
@@ -801,6 +821,10 @@ DECLARE FUNCTION atspi_relation_get_target(BYVAL AS AtspiRelation PTR, BYVAL AS 
 TYPE _AtspiRelationClass
   AS GObjectClass parent_class
 END TYPE
+DECLARE FUNCTION atspi_relation_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_RELATION_TYPE (atspi_relation_type_get_type())
+DECLARE FUNCTION atspi_role_get_type() AS GType
+#DEFINE ATSPI_TYPE_ROLE (atspi_role_get_type())
 DECLARE FUNCTION atspi_selection_get_type() AS GType
 #DEFINE ATSPI_TYPE_SELECTION (atspi_selection_get_type())
 #DEFINE ATSPI_SELECTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATSPI_TYPE_SELECTION, AtspiSelection))
@@ -839,6 +863,8 @@ DECLARE SUB atspi_state_set_set_by_name(BYVAL AS AtspiStateSet PTR, BYVAL AS con
 TYPE _AtspiStateSetClass
   AS GObjectClass parent_class
 END TYPE
+DECLARE FUNCTION atspi_state_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_STATE_TYPE (atspi_state_type_get_type())
 DECLARE FUNCTION atspi_table_get_type() AS GType
 #DEFINE ATSPI_TYPE_TABLE (atspi_table_get_type())
 #DEFINE ATSPI_TABLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATSPI_TYPE_TABLE, AtspiTable))
@@ -920,6 +946,12 @@ TYPE _AtspiTextRange
   AS gint end_offset
   AS gchar PTR content
 END TYPE
+DECLARE FUNCTION atspi_text_boundary_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_TEXT_BOUNDARY_TYPE (atspi_text_boundary_type_get_type())
+DECLARE FUNCTION atspi_text_clip_type_get_type() AS GType
+#DEFINE ATSPI_TYPE_TEXT_CLIP_TYPE (atspi_text_clip_type_get_type())
+DECLARE FUNCTION atspi_text_granularity_get_type() AS GType
+#DEFINE ATSPI_TYPE_TEXT_GRANULARITY (atspi_text_granularity_get_type())
 DECLARE FUNCTION atspi_value_get_type() AS GType
 #DEFINE ATSPI_TYPE_VALUE (atspi_value_get_type())
 #DEFINE ATSPI_VALUE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATSPI_TYPE_VALUE, AtspiValue))

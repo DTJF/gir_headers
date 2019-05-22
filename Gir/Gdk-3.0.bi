@@ -3091,12 +3091,18 @@ TYPE _GdkColor
   AS guint16 green
   AS guint16 blue
 END TYPE
+DECLARE FUNCTION gdk_axis_use_get_type() AS GType
+#DEFINE GDK_TYPE_AXIS_USE (gdk_axis_use_get_type())
+DECLARE FUNCTION gdk_byte_order_get_type() AS GType
+#DEFINE GDK_TYPE_BYTE_ORDER (gdk_byte_order_get_type())
 DECLARE FUNCTION gdk_color_copy(BYVAL AS const GdkColor PTR) AS GdkColor PTR
 DECLARE FUNCTION gdk_color_equal(BYVAL AS const GdkColor PTR, BYVAL AS const GdkColor PTR) AS gboolean
 DECLARE SUB gdk_color_free(BYVAL AS GdkColor PTR)
 DECLARE FUNCTION gdk_color_hash(BYVAL AS const GdkColor PTR) AS guint
 DECLARE FUNCTION gdk_color_to_string(BYVAL AS const GdkColor PTR) AS gchar PTR
 DECLARE FUNCTION gdk_color_parse(BYVAL AS const gchar PTR, BYVAL AS GdkColor PTR) AS gboolean
+DECLARE FUNCTION gdk_crossing_mode_get_type() AS GType
+#DEFINE GDK_TYPE_CROSSING_MODE (gdk_crossing_mode_get_type())
 DECLARE FUNCTION gdk_cursor_get_type() AS GType
 #DEFINE GDK_TYPE_CURSOR (gdk_cursor_get_type())
 #DEFINE GDK_CURSOR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_CURSOR, GdkCursor))
@@ -3115,6 +3121,8 @@ DECLARE FUNCTION gdk_cursor_get_image(BYVAL AS GdkCursor PTR) AS GdkPixbuf PTR
 DECLARE FUNCTION gdk_cursor_get_surface(BYVAL AS GdkCursor PTR, BYVAL AS gdouble PTR, BYVAL AS gdouble PTR) AS cairo_surface_t PTR
 DECLARE FUNCTION gdk_cursor_ref(BYVAL AS GdkCursor PTR) AS GdkCursor PTR
 DECLARE SUB gdk_cursor_unref(BYVAL AS GdkCursor PTR)
+DECLARE FUNCTION gdk_cursor_type_get_type() AS GType
+#DEFINE GDK_TYPE_CURSOR_TYPE (gdk_cursor_type_get_type())
 DECLARE FUNCTION gdk_device_get_type() AS GType
 #DEFINE GDK_TYPE_DEVICE (gdk_device_get_type())
 #DEFINE GDK_DEVICE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_DEVICE, GdkDevice))
@@ -3164,6 +3172,8 @@ DECLARE FUNCTION gdk_device_manager_get_type() AS GType
 DECLARE FUNCTION gdk_device_manager_get_client_pointer(BYVAL AS GdkDeviceManager PTR) AS GdkDevice PTR
 DECLARE FUNCTION gdk_device_manager_get_display(BYVAL AS GdkDeviceManager PTR) AS GdkDisplay PTR
 DECLARE FUNCTION gdk_device_manager_list_devices(BYVAL AS GdkDeviceManager PTR, BYVAL AS GdkDeviceType) AS GList PTR
+DECLARE FUNCTION gdk_device_type_get_type() AS GType
+#DEFINE GDK_TYPE_DEVICE_TYPE (gdk_device_type_get_type())
 DECLARE FUNCTION gdk_display_get_type() AS GType
 #DEFINE GDK_TYPE_DISPLAY (gdk_display_get_type())
 #DEFINE GDK_DISPLAY(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_DISPLAY, GdkDisplay))
@@ -3264,8 +3274,14 @@ UNION GdkEvent
   AS GdkEventTouchpadSwipe touchpad_swipe
   AS GdkEventTouchpadPinch touchpad_pinch
 END UNION
+DECLARE FUNCTION gdk_drag_protocol_get_type() AS GType
+#DEFINE GDK_TYPE_DRAG_PROTOCOL (gdk_drag_protocol_get_type())
 TYPE GdkEventFunc AS SUB CDECL(BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gpointer)
 TYPE GdkFilterFunc AS FUNCTION CDECL(BYVAL AS GdkXEvent PTR, BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gpointer) AS GdkFilterReturn
+DECLARE FUNCTION gdk_event_type_get_type() AS GType
+#DEFINE GDK_TYPE_EVENT_TYPE (gdk_event_type_get_type())
+DECLARE FUNCTION gdk_filter_return_get_type() AS GType
+#DEFINE GDK_TYPE_FILTER_RETURN (gdk_filter_return_get_type())
 DECLARE FUNCTION gdk_frame_clock_get_type() AS GType
 #DEFINE GDK_TYPE_FRAME_CLOCK (gdk_frame_clock_get_type())
 #DEFINE GDK_FRAME_CLOCK(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_FRAME_CLOCK, GdkFrameClock))
@@ -3290,6 +3306,8 @@ DECLARE FUNCTION gdk_frame_timings_get_presentation_time(BYVAL AS GdkFrameTiming
 DECLARE FUNCTION gdk_frame_timings_get_refresh_interval(BYVAL AS GdkFrameTimings PTR) AS gint64
 DECLARE FUNCTION gdk_frame_timings_ref(BYVAL AS GdkFrameTimings PTR) AS GdkFrameTimings PTR
 DECLARE SUB gdk_frame_timings_unref(BYVAL AS GdkFrameTimings PTR)
+DECLARE FUNCTION gdk_fullscreen_mode_get_type() AS GType
+#DEFINE GDK_TYPE_FULLSCREEN_MODE (gdk_fullscreen_mode_get_type())
 DECLARE FUNCTION gdk_gl_context_get_type() AS GType
 #DEFINE GDK_TYPE_GL_CONTEXT (gdk_gl_context_get_type())
 #DEFINE GDK_GL_CONTEXT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_GL_CONTEXT, GdkGLContext))
@@ -3324,6 +3342,18 @@ TYPE _GdkGeometry
   AS gdouble max_aspect
   AS GdkGravity win_gravity
 END TYPE
+DECLARE FUNCTION gdk_gl_error_get_type() AS GType
+#DEFINE GDK_TYPE_GL_ERROR (gdk_gl_error_get_type())
+DECLARE FUNCTION gdk_grab_ownership_get_type() AS GType
+#DEFINE GDK_TYPE_GRAB_OWNERSHIP (gdk_grab_ownership_get_type())
+DECLARE FUNCTION gdk_grab_status_get_type() AS GType
+#DEFINE GDK_TYPE_GRAB_STATUS (gdk_grab_status_get_type())
+DECLARE FUNCTION gdk_gravity_get_type() AS GType
+#DEFINE GDK_TYPE_GRAVITY (gdk_gravity_get_type())
+DECLARE FUNCTION gdk_input_mode_get_type() AS GType
+#DEFINE GDK_TYPE_INPUT_MODE (gdk_input_mode_get_type())
+DECLARE FUNCTION gdk_input_source_get_type() AS GType
+#DEFINE GDK_TYPE_INPUT_SOURCE (gdk_input_source_get_type())
 DECLARE FUNCTION gdk_keymap_get_type() AS GType
 #DEFINE GDK_TYPE_KEYMAP (gdk_keymap_get_type())
 #DEFINE GDK_KEYMAP(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_KEYMAP, GdkKeymap))
@@ -3355,12 +3385,22 @@ TYPE _GdkPoint
   AS gint x
   AS gint y
 END TYPE
+DECLARE FUNCTION gdk_modifier_intent_get_type() AS GType
+#DEFINE GDK_TYPE_MODIFIER_INTENT (gdk_modifier_intent_get_type())
+DECLARE FUNCTION gdk_notify_type_get_type() AS GType
+#DEFINE GDK_TYPE_NOTIFY_TYPE (gdk_notify_type_get_type())
+DECLARE FUNCTION gdk_owner_change_get_type() AS GType
+#DEFINE GDK_TYPE_OWNER_CHANGE (gdk_owner_change_get_type())
 TYPE _GdkRGBA
   AS gdouble red
   AS gdouble green
   AS gdouble blue
   AS gdouble alpha
 END TYPE
+DECLARE FUNCTION gdk_prop_mode_get_type() AS GType
+#DEFINE GDK_TYPE_PROP_MODE (gdk_prop_mode_get_type())
+DECLARE FUNCTION gdk_property_state_get_type() AS GType
+#DEFINE GDK_TYPE_PROPERTY_STATE (gdk_property_state_get_type())
 DECLARE FUNCTION gdk_rgba_copy(BYVAL AS const GdkRGBA PTR) AS GdkRGBA PTR
 DECLARE FUNCTION gdk_rgba_equal(BYVAL AS gconstpointer, BYVAL AS gconstpointer) AS gboolean
 DECLARE SUB gdk_rgba_free(BYVAL AS GdkRGBA PTR)
@@ -3413,6 +3453,16 @@ TYPE _GdkTimeCoord
   AS guint32 time
   AS gdouble axes(127)
 END TYPE
+DECLARE FUNCTION gdk_scroll_direction_get_type() AS GType
+#DEFINE GDK_TYPE_SCROLL_DIRECTION (gdk_scroll_direction_get_type())
+DECLARE FUNCTION gdk_setting_action_get_type() AS GType
+#DEFINE GDK_TYPE_SETTING_ACTION (gdk_setting_action_get_type())
+DECLARE FUNCTION gdk_status_get_type() AS GType
+#DEFINE GDK_TYPE_STATUS (gdk_status_get_type())
+DECLARE FUNCTION gdk_touchpad_gesture_phase_get_type() AS GType
+#DEFINE GDK_TYPE_TOUCHPAD_GESTURE_PHASE (gdk_touchpad_gesture_phase_get_type())
+DECLARE FUNCTION gdk_visibility_state_get_type() AS GType
+#DEFINE GDK_TYPE_VISIBILITY_STATE (gdk_visibility_state_get_type())
 DECLARE FUNCTION gdk_visual_get_type() AS GType
 #DEFINE GDK_TYPE_VISUAL (gdk_visual_get_type())
 #DEFINE GDK_VISUAL(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_VISUAL, GdkVisual))
@@ -3436,6 +3486,8 @@ DECLARE SUB gdk_visual_get_green_pixel_details(BYVAL AS GdkVisual PTR, BYVAL AS 
 DECLARE SUB gdk_visual_get_red_pixel_details(BYVAL AS GdkVisual PTR, BYVAL AS guint32 PTR, BYVAL AS gint PTR, BYVAL AS gint PTR)
 DECLARE FUNCTION gdk_visual_get_screen(BYVAL AS GdkVisual PTR) AS GdkScreen PTR
 DECLARE FUNCTION gdk_visual_get_visual_type(BYVAL AS GdkVisual PTR) AS GdkVisualType
+DECLARE FUNCTION gdk_visual_type_get_type() AS GType
+#DEFINE GDK_TYPE_VISUAL_TYPE (gdk_visual_type_get_type())
 DECLARE FUNCTION gdk_window_get_type() AS GType
 #DEFINE GDK_TYPE_WINDOW (gdk_window_get_type())
 #DEFINE GDK_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_WINDOW, GdkWindow))
@@ -3633,6 +3685,8 @@ TYPE _GdkWindowClass
   _gdk_reserved7 AS SUB CDECL()
   _gdk_reserved8 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gdk_window_edge_get_type() AS GType
+#DEFINE GDK_TYPE_WINDOW_EDGE (gdk_window_edge_get_type())
 ' P_4
 
 DECLARE SUB gdk_add_option_entries_libgtk_only(BYVAL AS GOptionGroup PTR)

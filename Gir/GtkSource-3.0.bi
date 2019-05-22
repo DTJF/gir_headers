@@ -264,6 +264,10 @@ TYPE _GtkSourceBuffer
   AS GtkTextBuffer parent_instance
   AS GtkSourceBufferPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_source_background_pattern_type_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_BACKGROUND_PATTERN_TYPE (gtk_source_background_pattern_type_get_type())
+DECLARE FUNCTION gtk_source_bracket_match_type_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_BRACKET_MATCH_TYPE (gtk_source_bracket_match_type_get_type())
 DECLARE FUNCTION gtk_source_buffer_get_type() AS GType
 #DEFINE GTKSOURCE_TYPE_SOURCE_BUFFER (gtk_source_buffer_get_type())
 #DEFINE GTKSOURCE_SOURCE_BUFFER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTKSOURCE_TYPE_SOURCE_BUFFER, GtkSourceBuffer))
@@ -320,6 +324,8 @@ TYPE _GtkSourceCompletion
   AS GObject parent_instance
   AS GtkSourceCompletionPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_source_change_case_type_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_CHANGE_CASE_TYPE (gtk_source_change_case_type_get_type())
 DECLARE FUNCTION gtk_source_completion_get_type() AS GType
 #DEFINE GTKSOURCE_TYPE_SOURCE_COMPLETION (gtk_source_completion_get_type())
 #DEFINE GTKSOURCE_SOURCE_COMPLETION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTKSOURCE_TYPE_SOURCE_COMPLETION, GtkSourceCompletion))
@@ -373,6 +379,8 @@ TYPE _GtkSourceCompletionInfo
   AS GtkWindow parent
   AS GtkSourceCompletionInfoPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_source_completion_error_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_COMPLETION_ERROR (gtk_source_completion_error_get_type())
 DECLARE FUNCTION gtk_source_completion_info_get_type() AS GType
 #DEFINE GTKSOURCE_TYPE_SOURCE_COMPLETION_INFO (gtk_source_completion_info_get_type())
 #DEFINE GTKSOURCE_SOURCE_COMPLETION_INFO(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTKSOURCE_TYPE_SOURCE_COMPLETION_INFO, GtkSourceCompletionInfo))
@@ -486,6 +494,8 @@ DECLARE SUB gtk_source_completion_words_unregister(BYVAL AS GtkSourceCompletionW
 TYPE _GtkSourceCompletionWordsClass
   AS GObjectClass parent_class
 END TYPE
+DECLARE FUNCTION gtk_source_compression_type_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_COMPRESSION_TYPE (gtk_source_compression_type_get_type())
 DECLARE FUNCTION gtk_source_encoding_copy(BYVAL AS const GtkSourceEncoding PTR) AS GtkSourceEncoding PTR
 DECLARE SUB gtk_source_encoding_free(BYVAL AS GtkSourceEncoding PTR)
 DECLARE FUNCTION gtk_source_encoding_get_charset(BYVAL AS const GtkSourceEncoding PTR) AS const gchar PTR
@@ -550,6 +560,8 @@ TYPE _GtkSourceFileLoaderClass
   AS GObjectClass parent_class
   AS gpointer padding(9)
 END TYPE
+DECLARE FUNCTION gtk_source_file_loader_error_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_FILE_LOADER_ERROR (gtk_source_file_loader_error_get_type())
 TYPE _GtkSourceFileSaver
   AS GObject object
   AS GtkSourceFileSaverPrivate PTR priv
@@ -580,6 +592,8 @@ TYPE _GtkSourceFileSaverClass
   AS GObjectClass parent_class
   AS gpointer padding(9)
 END TYPE
+DECLARE FUNCTION gtk_source_file_saver_error_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_FILE_SAVER_ERROR (gtk_source_file_saver_error_get_type())
 TYPE _GtkSourceGutter
   AS GObject parent
   AS GtkSourceGutterPrivate PTR priv
@@ -648,6 +662,8 @@ TYPE _GtkSourceGutterRendererClass
   query_tooltip AS FUNCTION CDECL(BYVAL AS GtkSourceGutterRenderer PTR, BYVAL AS GtkTextIter PTR, BYVAL AS GdkRectangle PTR, BYVAL AS gint, BYVAL AS gint, BYVAL AS GtkTooltip PTR) AS gboolean
   query_data AS SUB CDECL(BYVAL AS GtkSourceGutterRenderer PTR, BYVAL AS GtkTextIter PTR, BYVAL AS GtkTextIter PTR, BYVAL AS GtkSourceGutterRendererState)
 END TYPE
+DECLARE FUNCTION gtk_source_gutter_renderer_alignment_mode_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE (gtk_source_gutter_renderer_alignment_mode_get_type())
 TYPE _GtkSourceGutterRendererPixbuf
   AS GtkSourceGutterRenderer parent
   AS GtkSourceGutterRendererPixbufPrivate PTR priv
@@ -810,6 +826,8 @@ TYPE _GtkSourcePrintCompositor
   AS GObject parent_instance
   AS GtkSourcePrintCompositorPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_source_newline_type_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_NEWLINE_TYPE (gtk_source_newline_type_get_type())
 DECLARE FUNCTION gtk_source_print_compositor_get_type() AS GType
 #DEFINE GTKSOURCE_TYPE_SOURCE_PRINT_COMPOSITOR (gtk_source_print_compositor_get_type())
 #DEFINE GTKSOURCE_SOURCE_PRINT_COMPOSITOR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTKSOURCE_TYPE_SOURCE_PRINT_COMPOSITOR, GtkSourcePrintCompositor))
@@ -919,6 +937,8 @@ TYPE _GtkSourceSearchSettingsClass
   AS GObjectClass parent_class
   AS gpointer padding(9)
 END TYPE
+DECLARE FUNCTION gtk_source_smart_home_end_type_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_SMART_HOME_END_TYPE (gtk_source_smart_home_end_type_get_type())
 DECLARE FUNCTION gtk_source_style_get_type() AS GType
 #DEFINE GTKSOURCE_TYPE_SOURCE_STYLE (gtk_source_style_get_type())
 #DEFINE GTKSOURCE_SOURCE_STYLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTKSOURCE_TYPE_SOURCE_STYLE, GtkSourceStyle))
@@ -1043,6 +1063,8 @@ TYPE _GtkSourceUndoManagerIface
   can_undo_changed AS SUB CDECL(BYVAL AS GtkSourceUndoManager PTR)
   can_redo_changed AS SUB CDECL(BYVAL AS GtkSourceUndoManager PTR)
 END TYPE
+DECLARE FUNCTION gtk_source_view_gutter_position_get_type() AS GType
+#DEFINE GTK_TYPE_SOURCE_VIEW_GUTTER_POSITION (gtk_source_view_gutter_position_get_type())
 ' P_4
 
 DECLARE FUNCTION gtk_source_utils_escape_search_text(BYVAL AS const gchar PTR) AS gchar PTR

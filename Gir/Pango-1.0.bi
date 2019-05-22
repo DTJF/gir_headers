@@ -389,6 +389,8 @@ TYPE _PangoAnalysis
   AS PangoLanguage PTR language
   AS GSList PTR extra_attrs
 END TYPE
+DECLARE FUNCTION pango_alignment_get_type() AS GType
+#DEFINE PANGO_TYPE_ALIGNMENT (pango_alignment_get_type())
 TYPE _PangoAttrClass
   AS PangoAttrType type
   copy AS FUNCTION CDECL(BYVAL AS const PangoAttribute PTR) AS PangoAttribute PTR
@@ -462,6 +464,10 @@ TYPE _PangoAttrString
   AS PangoAttribute attr
   AS char PTR value
 END TYPE
+DECLARE FUNCTION pango_attr_type_get_type() AS GType
+#DEFINE PANGO_TYPE_ATTR_TYPE (pango_attr_type_get_type())
+DECLARE FUNCTION pango_bidi_type_get_type() AS GType
+#DEFINE PANGO_TYPE_BIDI_TYPE (pango_bidi_type_get_type())
 DECLARE FUNCTION pango_context_get_type() AS GType
 #DEFINE PANGO_TYPE_CONTEXT (pango_context_get_type())
 #DEFINE PANGO_CONTEXT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), PANGO_TYPE_CONTEXT, PangoContext))
@@ -503,6 +509,12 @@ DECLARE FUNCTION pango_coverage_new() AS PangoCoverage PTR
 TYPE _PangoEngine
   AS GObject parent_instance
 END TYPE
+DECLARE FUNCTION pango_coverage_level_get_type() AS GType
+#DEFINE PANGO_TYPE_COVERAGE_LEVEL (pango_coverage_level_get_type())
+DECLARE FUNCTION pango_direction_get_type() AS GType
+#DEFINE PANGO_TYPE_DIRECTION (pango_direction_get_type())
+DECLARE FUNCTION pango_ellipsize_mode_get_type() AS GType
+#DEFINE PANGO_TYPE_ELLIPSIZE_MODE (pango_ellipsize_mode_get_type())
 DECLARE FUNCTION pango_engine_get_type() AS GType
 #DEFINE PANGO_TYPE_ENGINE (pango_engine_get_type())
 #DEFINE PANGO_ENGINE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), PANGO_TYPE_ENGINE, PangoEngine))
@@ -801,6 +813,10 @@ TYPE _PangoIncludedModule
   exit AS SUB CDECL()
   create AS FUNCTION CDECL(BYVAL AS const char PTR) AS PangoEngine PTR
 END TYPE
+DECLARE FUNCTION pango_gravity_get_type() AS GType
+#DEFINE PANGO_TYPE_GRAVITY (pango_gravity_get_type())
+DECLARE FUNCTION pango_gravity_hint_get_type() AS GType
+#DEFINE PANGO_TYPE_GRAVITY_HINT (pango_gravity_hint_get_type())
 TYPE _PangoItem
   AS gint offset
   AS gint length
@@ -962,6 +978,8 @@ TYPE _PangoRenderer
   AS PangoMatrix PTR matrix
   AS PangoRendererPrivate PTR priv
 END TYPE
+DECLARE FUNCTION pango_render_part_get_type() AS GType
+#DEFINE PANGO_TYPE_RENDER_PART (pango_render_part_get_type())
 DECLARE FUNCTION pango_renderer_get_type() AS GType
 #DEFINE PANGO_TYPE_RENDERER (pango_renderer_get_type())
 #DEFINE PANGO_RENDERER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), PANGO_TYPE_RENDERER, PangoRenderer))
@@ -1009,10 +1027,18 @@ TYPE _PangoScriptForLang
   AS const char /'?'/ lang(6)
   AS PangoScript scripts(2)
 END TYPE
+DECLARE FUNCTION pango_script_get_type() AS GType
+#DEFINE PANGO_TYPE_SCRIPT (pango_script_get_type())
 DECLARE SUB pango_script_iter_free(BYVAL AS PangoScriptIter PTR)
 DECLARE SUB pango_script_iter_get_range(BYVAL AS PangoScriptIter PTR, BYVAL AS const char PTR PTR, BYVAL AS const char PTR PTR, BYVAL AS PangoScript PTR)
 DECLARE FUNCTION pango_script_iter_next(BYVAL AS PangoScriptIter PTR) AS gboolean
 DECLARE FUNCTION pango_script_iter_new(BYVAL AS const char PTR, BYVAL AS gint /'int'/) AS PangoScriptIter PTR
+DECLARE FUNCTION pango_stretch_get_type() AS GType
+#DEFINE PANGO_TYPE_STRETCH (pango_stretch_get_type())
+DECLARE FUNCTION pango_style_get_type() AS GType
+#DEFINE PANGO_TYPE_STYLE (pango_style_get_type())
+DECLARE FUNCTION pango_tab_align_get_type() AS GType
+#DEFINE PANGO_TYPE_TAB_ALIGN (pango_tab_align_get_type())
 DECLARE FUNCTION pango_tab_array_new(BYVAL AS gint, BYVAL AS gboolean) AS PangoTabArray PTR
 DECLARE FUNCTION pango_tab_array_new_with_positions(BYVAL AS gint, BYVAL AS gboolean, BYVAL AS PangoTabAlign, BYVAL AS gint, ...) AS PangoTabArray PTR
 DECLARE FUNCTION pango_tab_array_copy(BYVAL AS PangoTabArray PTR) AS PangoTabArray PTR

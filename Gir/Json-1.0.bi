@@ -212,6 +212,8 @@ DECLARE SUB json_node_take_array(BYVAL AS JsonNode PTR, BYVAL AS JsonArray PTR)
 DECLARE SUB json_node_take_object(BYVAL AS JsonNode PTR, BYVAL AS JsonObject PTR)
 DECLARE FUNCTION json_node_type_name(BYVAL AS JsonNode PTR) AS const gchar PTR
 DECLARE SUB json_node_unref(BYVAL AS JsonNode PTR)
+DECLARE FUNCTION json_node_type_get_type() AS GType
+#DEFINE JSON_TYPE_NODE_TYPE (json_node_type_get_type())
 DECLARE FUNCTION json_object_new() AS JsonObject PTR
 DECLARE SUB json_object_add_member(BYVAL AS JsonObject PTR, BYVAL AS const gchar PTR, BYVAL AS JsonNode PTR)
 DECLARE FUNCTION json_object_dup_member(BYVAL AS JsonObject PTR, BYVAL AS const gchar PTR) AS JsonNode PTR
@@ -292,6 +294,8 @@ TYPE _JsonParserClass
   _json_reserved7 AS SUB CDECL()
   _json_reserved8 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION json_parser_error_get_type() AS GType
+#DEFINE JSON_TYPE_PARSER_ERROR (json_parser_error_get_type())
 DECLARE FUNCTION json_path_get_type() AS GType
 #DEFINE JSON_TYPE_PATH (json_path_get_type())
 #DEFINE JSON_PATH(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), JSON_TYPE_PATH, JsonPath))
@@ -307,6 +311,8 @@ TYPE _JsonReader
   AS GObject parent_instance
   AS JsonReaderPrivate PTR priv
 END TYPE
+DECLARE FUNCTION json_path_error_get_type() AS GType
+#DEFINE JSON_TYPE_PATH_ERROR (json_path_error_get_type())
 DECLARE FUNCTION json_reader_get_type() AS GType
 #DEFINE JSON_TYPE_READER (json_reader_get_type())
 #DEFINE JSON_READER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), JSON_TYPE_READER, JsonReader))
@@ -342,6 +348,8 @@ TYPE _JsonReaderClass
   _json_padding3 AS SUB CDECL()
   _json_padding4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION json_reader_error_get_type() AS GType
+#DEFINE JSON_TYPE_READER_ERROR (json_reader_error_get_type())
 DECLARE FUNCTION json_serializable_get_type() AS GType
 #DEFINE JSON_TYPE_SERIALIZABLE (json_serializable_get_type())
 #DEFINE JSON_SERIALIZABLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), JSON_TYPE_SERIALIZABLE, JsonSerializable))

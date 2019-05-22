@@ -89,6 +89,10 @@ TYPE GdkPixbufDestroyNotify AS SUB CDECL(BYVAL AS guchar PTR, BYVAL AS gpointer)
 TYPE GdkPixbufSaveFunc AS FUNCTION CDECL(BYVAL AS gchar PTR, BYVAL AS gsize, BYVAL AS GError PTR PTR, BYVAL AS gpointer) AS gboolean
 ' P_3
 
+DECLARE FUNCTION gdk_colorspace_get_type() AS GType
+#DEFINE GDK_TYPE_COLORSPACE (gdk_colorspace_get_type())
+DECLARE FUNCTION gdk_interp_type_get_type() AS GType
+#DEFINE GDK_TYPE_INTERP_TYPE (gdk_interp_type_get_type())
 DECLARE FUNCTION gdk_pixbuf_get_type() AS GType
 #DEFINE GDKPIXBUF_TYPE_PIXBUF (gdk_pixbuf_get_type())
 #DEFINE GDKPIXBUF_PIXBUF(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDKPIXBUF_TYPE_PIXBUF, GdkPixbuf))
@@ -155,6 +159,8 @@ DECLARE FUNCTION gdk_pixbuf_savev(BYVAL AS GdkPixbuf PTR, BYVAL AS const char PT
 DECLARE SUB gdk_pixbuf_scale(BYVAL AS const GdkPixbuf PTR, BYVAL AS GdkPixbuf PTR, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/, BYVAL AS double, BYVAL AS double, BYVAL AS double, BYVAL AS double, BYVAL AS GdkInterpType)
 DECLARE FUNCTION gdk_pixbuf_scale_simple(BYVAL AS const GdkPixbuf PTR, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/, BYVAL AS GdkInterpType) AS GdkPixbuf PTR
 DECLARE SUB gdk_pixbuf_unref(BYVAL AS GdkPixbuf PTR)
+DECLARE FUNCTION gdk_pixbuf_alpha_mode_get_type() AS GType
+#DEFINE GDK_TYPE_PIXBUF_ALPHA_MODE (gdk_pixbuf_alpha_mode_get_type())
 DECLARE FUNCTION gdk_pixbuf_animation_get_type() AS GType
 #DEFINE GDKPIXBUF_TYPE_PIXBUF_ANIMATION (gdk_pixbuf_animation_get_type())
 #DEFINE GDKPIXBUF_PIXBUF_ANIMATION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDKPIXBUF_TYPE_PIXBUF_ANIMATION, GdkPixbufAnimation))
@@ -185,6 +191,8 @@ DECLARE FUNCTION gdk_pixbuf_animation_iter_advance(BYVAL AS GdkPixbufAnimationIt
 DECLARE FUNCTION gdk_pixbuf_animation_iter_get_delay_time(BYVAL AS GdkPixbufAnimationIter PTR) AS gint /'int'/
 DECLARE FUNCTION gdk_pixbuf_animation_iter_get_pixbuf(BYVAL AS GdkPixbufAnimationIter PTR) AS GdkPixbuf PTR
 DECLARE FUNCTION gdk_pixbuf_animation_iter_on_currently_loading_frame(BYVAL AS GdkPixbufAnimationIter PTR) AS gboolean
+DECLARE FUNCTION gdk_pixbuf_error_get_type() AS GType
+#DEFINE GDK_TYPE_PIXBUF_ERROR (gdk_pixbuf_error_get_type())
 DECLARE FUNCTION gdk_pixbuf_format_copy(BYVAL AS const GdkPixbufFormat PTR) AS GdkPixbufFormat PTR
 DECLARE SUB gdk_pixbuf_format_free(BYVAL AS GdkPixbufFormat PTR)
 DECLARE FUNCTION gdk_pixbuf_format_get_description(BYVAL AS GdkPixbufFormat PTR) AS gchar PTR
@@ -224,6 +232,8 @@ TYPE _GdkPixbufLoaderClass
   area_updated AS SUB CDECL(BYVAL AS GdkPixbufLoader PTR, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/, BYVAL AS gint /'int'/)
   closed AS SUB CDECL(BYVAL AS GdkPixbufLoader PTR)
 END TYPE
+DECLARE FUNCTION gdk_pixbuf_rotation_get_type() AS GType
+#DEFINE GDK_TYPE_PIXBUF_ROTATION (gdk_pixbuf_rotation_get_type())
 DECLARE FUNCTION gdk_pixbuf_simple_anim_get_type() AS GType
 #DEFINE GDKPIXBUF_TYPE_PIXBUF_SIMPLE_ANIM (gdk_pixbuf_simple_anim_get_type())
 #DEFINE GDKPIXBUF_PIXBUF_SIMPLE_ANIM(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDKPIXBUF_TYPE_PIXBUF_SIMPLE_ANIM, GdkPixbufSimpleAnim))

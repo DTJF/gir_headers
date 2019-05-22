@@ -319,6 +319,18 @@ TYPE _GooCanvas
   AS gdouble device_to_pixels_y
   AS GList PTR widget_items
 END TYPE
+DECLARE FUNCTION goo_cairo_antialias_get_type() AS GType
+#DEFINE GOO_TYPE_CAIRO_ANTIALIAS (goo_cairo_antialias_get_type())
+DECLARE FUNCTION goo_cairo_fill_rule_get_type() AS GType
+#DEFINE GOO_TYPE_CAIRO_FILL_RULE (goo_cairo_fill_rule_get_type())
+DECLARE FUNCTION goo_cairo_hint_metrics_get_type() AS GType
+#DEFINE GOO_TYPE_CAIRO_HINT_METRICS (goo_cairo_hint_metrics_get_type())
+DECLARE FUNCTION goo_cairo_line_cap_get_type() AS GType
+#DEFINE GOO_TYPE_CAIRO_LINE_CAP (goo_cairo_line_cap_get_type())
+DECLARE FUNCTION goo_cairo_line_join_get_type() AS GType
+#DEFINE GOO_TYPE_CAIRO_LINE_JOIN (goo_cairo_line_join_get_type())
+DECLARE FUNCTION goo_cairo_operator_get_type() AS GType
+#DEFINE GOO_TYPE_CAIRO_OPERATOR (goo_cairo_operator_get_type())
 DECLARE FUNCTION goo_canvas_get_type() AS GType
 #DEFINE GOO_TYPE_CANVAS (goo_canvas_get_type())
 #DEFINE GOO_CANVAS(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GOO_TYPE_CANVAS, GooCanvas))
@@ -408,6 +420,10 @@ TYPE _GooCanvasClass
   _goo_canvas_reserved7 AS SUB CDECL()
   _goo_canvas_reserved8 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION goo_canvas_anchor_type_get_type() AS GType
+#DEFINE GOO_TYPE_CANVAS_ANCHOR_TYPE (goo_canvas_anchor_type_get_type())
+DECLARE FUNCTION goo_canvas_animate_type_get_type() AS GType
+#DEFINE GOO_TYPE_CANVAS_ANIMATE_TYPE (goo_canvas_animate_type_get_type())
 TYPE _GooCanvasEllipse
   AS GooCanvasItemSimple parent_object
   AS GooCanvasEllipseData PTR ellipse_data
@@ -783,6 +799,8 @@ TYPE _GooCanvasLineDash
   AS double PTR dashes
   AS double dash_offset
 END TYPE
+DECLARE FUNCTION goo_canvas_item_visibility_get_type() AS GType
+#DEFINE GOO_TYPE_CANVAS_ITEM_VISIBILITY (goo_canvas_item_visibility_get_type())
 DECLARE FUNCTION goo_canvas_line_dash_new(BYVAL AS gint, ...) AS GooCanvasLineDash PTR
 DECLARE FUNCTION goo_canvas_line_dash_newv(BYVAL AS gint, BYVAL AS double PTR) AS GooCanvasLineDash PTR
 DECLARE FUNCTION goo_canvas_line_dash_ref(BYVAL AS GooCanvasLineDash PTR) AS GooCanvasLineDash PTR
@@ -842,6 +860,8 @@ END UNION
 TYPE _GooCanvasPathData
   AS GArray PTR path_commands
 END TYPE
+DECLARE FUNCTION goo_canvas_path_command_type_get_type() AS GType
+#DEFINE GOO_TYPE_CANVAS_PATH_COMMAND_TYPE (goo_canvas_path_command_type_get_type())
 TYPE _GooCanvasPathModel
   AS GooCanvasItemModelSimple parent_object
   AS GooCanvasPathData path_data

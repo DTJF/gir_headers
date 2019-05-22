@@ -550,6 +550,8 @@ TYPE _AtkComponentIface
   bounds_changed AS SUB CDECL(BYVAL AS AtkComponent PTR, BYVAL AS AtkRectangle PTR)
   get_alpha AS FUNCTION CDECL(BYVAL AS AtkComponent PTR) AS gdouble
 END TYPE
+DECLARE FUNCTION atk_coord_type_get_type() AS GType
+#DEFINE ATK_TYPE_COORD_TYPE (atk_coord_type_get_type())
 DECLARE FUNCTION atk_document_get_type() AS GType
 #DEFINE ATK_TYPE_DOCUMENT (atk_document_get_type())
 #DEFINE ATK_DOCUMENT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATK_TYPE_DOCUMENT, AtkDocument))
@@ -714,6 +716,10 @@ TYPE AtkKeySnoopFunc AS FUNCTION CDECL(BYVAL AS AtkKeyEventStruct PTR, BYVAL AS 
 TYPE _AtkMisc
   AS GObject parent
 END TYPE
+DECLARE FUNCTION atk_key_event_type_get_type() AS GType
+#DEFINE ATK_TYPE_KEY_EVENT_TYPE (atk_key_event_type_get_type())
+DECLARE FUNCTION atk_layer_get_type() AS GType
+#DEFINE ATK_TYPE_LAYER (atk_layer_get_type())
 DECLARE FUNCTION atk_misc_get_type() AS GType
 #DEFINE ATK_TYPE_MISC (atk_misc_get_type())
 #DEFINE ATK_MISC(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATK_TYPE_MISC, AtkMisc))
@@ -849,6 +855,10 @@ TYPE _AtkRelationSetClass
   AS AtkFunction pad1
   AS AtkFunction pad2
 END TYPE
+DECLARE FUNCTION atk_relation_type_get_type() AS GType
+#DEFINE ATK_TYPE_RELATION_TYPE (atk_relation_type_get_type())
+DECLARE FUNCTION atk_role_get_type() AS GType
+#DEFINE ATK_TYPE_ROLE (atk_role_get_type())
 DECLARE FUNCTION atk_selection_get_type() AS GType
 #DEFINE ATK_TYPE_SELECTION (atk_selection_get_type())
 #DEFINE ATK_SELECTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATK_TYPE_SELECTION, AtkSelection))
@@ -915,6 +925,8 @@ DECLARE FUNCTION atk_state_set_xor_sets(BYVAL AS AtkStateSet PTR, BYVAL AS AtkSt
 TYPE _AtkStateSetClass
   AS GObjectClass parent
 END TYPE
+DECLARE FUNCTION atk_state_type_get_type() AS GType
+#DEFINE ATK_TYPE_STATE_TYPE (atk_state_type_get_type())
 DECLARE FUNCTION atk_streamable_content_get_type() AS GType
 #DEFINE ATK_TYPE_STREAMABLE_CONTENT (atk_streamable_content_get_type())
 #DEFINE ATK_STREAMABLE_CONTENT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATK_TYPE_STREAMABLE_CONTENT, AtkStreamableContent))
@@ -1086,6 +1098,14 @@ TYPE _AtkTextIface
   get_bounded_ranges AS FUNCTION CDECL(BYVAL AS AtkText PTR, BYVAL AS AtkTextRectangle PTR, BYVAL AS AtkCoordType, BYVAL AS AtkTextClipType, BYVAL AS AtkTextClipType) AS AtkTextRange PTR PTR
   get_string_at_offset AS FUNCTION CDECL(BYVAL AS AtkText PTR, BYVAL AS gint, BYVAL AS AtkTextGranularity, BYVAL AS gint PTR, BYVAL AS gint PTR) AS gchar PTR
 END TYPE
+DECLARE FUNCTION atk_text_attribute_get_type() AS GType
+#DEFINE ATK_TYPE_TEXT_ATTRIBUTE (atk_text_attribute_get_type())
+DECLARE FUNCTION atk_text_boundary_get_type() AS GType
+#DEFINE ATK_TYPE_TEXT_BOUNDARY (atk_text_boundary_get_type())
+DECLARE FUNCTION atk_text_clip_type_get_type() AS GType
+#DEFINE ATK_TYPE_TEXT_CLIP_TYPE (atk_text_clip_type_get_type())
+DECLARE FUNCTION atk_text_granularity_get_type() AS GType
+#DEFINE ATK_TYPE_TEXT_GRANULARITY (atk_text_granularity_get_type())
 TYPE _AtkTextRange
   AS AtkTextRectangle bounds
   AS gint start_offset
@@ -1141,6 +1161,8 @@ TYPE _AtkValueIface
   get_sub_ranges AS FUNCTION CDECL(BYVAL AS AtkValue PTR) AS GSList PTR
   set_value AS SUB CDECL(BYVAL AS AtkValue PTR, BYVAL AS const gdouble)
 END TYPE
+DECLARE FUNCTION atk_value_type_get_type() AS GType
+#DEFINE ATK_TYPE_VALUE_TYPE (atk_value_type_get_type())
 DECLARE FUNCTION atk_window_get_type() AS GType
 #DEFINE ATK_TYPE_WINDOW (atk_window_get_type())
 #DEFINE ATK_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), ATK_TYPE_WINDOW, AtkWindow))

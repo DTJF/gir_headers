@@ -4020,6 +4020,8 @@ TYPE _GtkAlignment
   AS GtkBin bin
   AS GtkAlignmentPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_align_get_type() AS GType
+#DEFINE GTK_TYPE_ALIGN (gtk_align_get_type())
 DECLARE FUNCTION gtk_alignment_get_type() AS GType
 #DEFINE GTK_TYPE_ALIGNMENT (gtk_alignment_get_type())
 #DEFINE GTK_ALIGNMENT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_ALIGNMENT, GtkAlignment))
@@ -4215,10 +4217,14 @@ TYPE _GtkArrowClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_arrow_placement_get_type() AS GType
+#DEFINE GTK_TYPE_ARROW_PLACEMENT (gtk_arrow_placement_get_type())
 TYPE _GtkAspectFrame
   AS GtkFrame frame
   AS GtkAspectFramePrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_arrow_type_get_type() AS GType
+#DEFINE GTK_TYPE_ARROW_TYPE (gtk_arrow_type_get_type())
 DECLARE FUNCTION gtk_aspect_frame_get_type() AS GType
 #DEFINE GTK_TYPE_ASPECT_FRAME (gtk_aspect_frame_get_type())
 #DEFINE GTK_ASPECT_FRAME(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_ASPECT_FRAME, GtkAspectFrame))
@@ -4286,6 +4292,10 @@ TYPE _GtkAssistantClass
   _gtk_reserved4 AS SUB CDECL()
   _gtk_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_assistant_page_type_get_type() AS GType
+#DEFINE GTK_TYPE_ASSISTANT_PAGE_TYPE (gtk_assistant_page_type_get_type())
+DECLARE FUNCTION gtk_baseline_position_get_type() AS GType
+#DEFINE GTK_TYPE_BASELINE_POSITION (gtk_baseline_position_get_type())
 TYPE _GtkBindingArg
   AS GType arg_type
 END TYPE
@@ -4349,6 +4359,8 @@ END TYPE
 DECLARE FUNCTION gtk_border_new() AS GtkBorder PTR
 DECLARE FUNCTION gtk_border_copy(BYVAL AS const GtkBorder PTR) AS GtkBorder PTR
 DECLARE SUB gtk_border_free(BYVAL AS GtkBorder PTR)
+DECLARE FUNCTION gtk_border_style_get_type() AS GType
+#DEFINE GTK_TYPE_BORDER_STYLE (gtk_border_style_get_type())
 DECLARE FUNCTION gtk_buildable_get_type() AS GType
 #DEFINE GTK_TYPE_BUILDABLE (gtk_buildable_get_type())
 #DEFINE GTK_BUILDABLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_BUILDABLE, GtkBuildable))
@@ -4426,6 +4438,8 @@ TYPE _GtkBuilderClass
   _gtk_reserved7 AS SUB CDECL()
   _gtk_reserved8 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_builder_error_get_type() AS GType
+#DEFINE GTK_TYPE_BUILDER_ERROR (gtk_builder_error_get_type())
 TYPE _GtkButtonBox
   AS GtkBox box
   AS GtkButtonBoxPrivate PTR priv
@@ -4451,10 +4465,16 @@ TYPE _GtkButtonBoxClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_button_box_style_get_type() AS GType
+#DEFINE GTK_TYPE_BUTTON_BOX_STYLE (gtk_button_box_style_get_type())
 TYPE _GtkCalendar
   AS GtkWidget widget
   AS GtkCalendarPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_button_role_get_type() AS GType
+#DEFINE GTK_TYPE_BUTTON_ROLE (gtk_button_role_get_type())
+DECLARE FUNCTION gtk_buttons_type_get_type() AS GType
+#DEFINE GTK_TYPE_BUTTONS_TYPE (gtk_buttons_type_get_type())
 DECLARE FUNCTION gtk_calendar_get_type() AS GType
 #DEFINE GTK_TYPE_CALENDAR (gtk_calendar_get_type())
 #DEFINE GTK_CALENDAR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_CALENDAR, GtkCalendar))
@@ -4695,6 +4715,8 @@ TYPE _GtkCellRendererAccelClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_cell_renderer_accel_mode_get_type() AS GType
+#DEFINE GTK_TYPE_CELL_RENDERER_ACCEL_MODE (gtk_cell_renderer_accel_mode_get_type())
 TYPE _GtkCellRendererCombo
   AS GtkCellRendererText parent
   AS GtkCellRendererComboPrivate PTR priv
@@ -4718,6 +4740,8 @@ TYPE _GtkCellRendererPixbuf
   AS GtkCellRenderer parent
   AS GtkCellRendererPixbufPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_cell_renderer_mode_get_type() AS GType
+#DEFINE GTK_TYPE_CELL_RENDERER_MODE (gtk_cell_renderer_mode_get_type())
 DECLARE FUNCTION gtk_cell_renderer_pixbuf_get_type() AS GType
 #DEFINE GTK_TYPE_CELL_RENDERER_PIXBUF (gtk_cell_renderer_pixbuf_get_type())
 #DEFINE GTK_CELL_RENDERER_PIXBUF(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_CELL_RENDERER_PIXBUF, GtkCellRendererPixbuf))
@@ -5170,6 +5194,8 @@ TYPE _GtkCssProvider
   AS GObject parent_instance
   AS GtkCssProviderPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_corner_type_get_type() AS GType
+#DEFINE GTK_TYPE_CORNER_TYPE (gtk_corner_type_get_type())
 DECLARE FUNCTION gtk_css_provider_get_type() AS GType
 #DEFINE GTK_TYPE_CSS_PROVIDER (gtk_css_provider_get_type())
 #DEFINE GTK_CSS_PROVIDER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_CSS_PROVIDER, GtkCssProvider))
@@ -5192,6 +5218,8 @@ TYPE _GtkCssProviderClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_css_provider_error_get_type() AS GType
+#DEFINE GTK_TYPE_CSS_PROVIDER_ERROR (gtk_css_provider_error_get_type())
 DECLARE FUNCTION gtk_css_section_get_end_line(BYVAL AS const GtkCssSection PTR) AS guint
 DECLARE FUNCTION gtk_css_section_get_end_position(BYVAL AS const GtkCssSection PTR) AS guint
 DECLARE FUNCTION gtk_css_section_get_file(BYVAL AS const GtkCssSection PTR) AS GFile PTR
@@ -5201,10 +5229,18 @@ DECLARE FUNCTION gtk_css_section_get_start_line(BYVAL AS const GtkCssSection PTR
 DECLARE FUNCTION gtk_css_section_get_start_position(BYVAL AS const GtkCssSection PTR) AS guint
 DECLARE FUNCTION gtk_css_section_ref(BYVAL AS GtkCssSection PTR) AS GtkCssSection PTR
 DECLARE SUB gtk_css_section_unref(BYVAL AS GtkCssSection PTR)
+DECLARE FUNCTION gtk_css_section_type_get_type() AS GType
+#DEFINE GTK_TYPE_CSS_SECTION_TYPE (gtk_css_section_type_get_type())
+DECLARE FUNCTION gtk_delete_type_get_type() AS GType
+#DEFINE GTK_TYPE_DELETE_TYPE (gtk_delete_type_get_type())
 TYPE _GtkDrawingArea
   AS GtkWidget widget
   AS gpointer dummy
 END TYPE
+DECLARE FUNCTION gtk_direction_type_get_type() AS GType
+#DEFINE GTK_TYPE_DIRECTION_TYPE (gtk_direction_type_get_type())
+DECLARE FUNCTION gtk_drag_result_get_type() AS GType
+#DEFINE GTK_TYPE_DRAG_RESULT (gtk_drag_result_get_type())
 DECLARE FUNCTION gtk_drawing_area_get_type() AS GType
 #DEFINE GTK_TYPE_DRAWING_AREA (gtk_drawing_area_get_type())
 #DEFINE GTK_DRAWING_AREA(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_DRAWING_AREA, GtkDrawingArea))
@@ -5470,6 +5506,8 @@ DECLARE FUNCTION gtk_entry_icon_accessible_get_type() AS GType
 #DEFINE GTK_IS_ENTRY_ICON_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_TYPE_ENTRY_ICON_ACCESSIBLE))
 #DEFINE GTK_IS_CLASS_ENTRY_ICON_ACCESSIBLE(obj) (G_TYPE_CHECK_CLASS_TYPE((obj), GTK_TYPE_ENTRY_ICON_ACCESSIBLE))
 #DEFINE GTK_ENTRY_ICON_ACCESSIBLE_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_TYPE_ENTRY_ICON_ACCESSIBLE, Gtk))
+DECLARE FUNCTION gtk_entry_icon_position_get_type() AS GType
+#DEFINE GTK_TYPE_ENTRY_ICON_POSITION (gtk_entry_icon_position_get_type())
 TYPE _GtkEventBox
   AS GtkBin bin
   AS GtkEventBoxPrivate PTR priv
@@ -5509,6 +5547,8 @@ TYPE _GtkExpander
   AS GtkBin bin
   AS GtkExpanderPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_event_sequence_state_get_type() AS GType
+#DEFINE GTK_TYPE_EVENT_SEQUENCE_STATE (gtk_event_sequence_state_get_type())
 DECLARE FUNCTION gtk_expander_get_type() AS GType
 #DEFINE GTK_TYPE_EXPANDER (gtk_expander_get_type())
 #DEFINE GTK_EXPANDER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_EXPANDER, GtkExpander))
@@ -5556,6 +5596,8 @@ TYPE _GtkExpanderClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_expander_style_get_type() AS GType
+#DEFINE GTK_TYPE_EXPANDER_STYLE (gtk_expander_style_get_type())
 DECLARE FUNCTION gtk_file_chooser_get_type() AS GType
 #DEFINE GTK_TYPE_FILE_CHOOSER (gtk_file_chooser_get_type())
 #DEFINE GTK_FILE_CHOOSER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_FILE_CHOOSER, GtkFileChooser))
@@ -5625,6 +5667,8 @@ TYPE _GtkFileChooserButton
   AS GtkBox parent
   AS GtkFileChooserButtonPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_file_chooser_action_get_type() AS GType
+#DEFINE GTK_TYPE_FILE_CHOOSER_ACTION (gtk_file_chooser_action_get_type())
 DECLARE FUNCTION gtk_file_chooser_button_get_type() AS GType
 #DEFINE GTK_TYPE_FILE_CHOOSER_BUTTON (gtk_file_chooser_button_get_type())
 #DEFINE GTK_FILE_CHOOSER_BUTTON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_FILE_CHOOSER_BUTTON, GtkFileChooserButton))
@@ -5652,6 +5696,8 @@ TYPE _GtkFileChooserDialog
   AS GtkDialog parent_instance
   AS GtkFileChooserDialogPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_file_chooser_confirmation_get_type() AS GType
+#DEFINE GTK_TYPE_FILE_CHOOSER_CONFIRMATION (gtk_file_chooser_confirmation_get_type())
 DECLARE FUNCTION gtk_file_chooser_dialog_get_type() AS GType
 #DEFINE GTK_TYPE_FILE_CHOOSER_DIALOG (gtk_file_chooser_dialog_get_type())
 #DEFINE GTK_FILE_CHOOSER_DIALOG(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_FILE_CHOOSER_DIALOG, GtkFileChooserDialog))
@@ -5671,6 +5717,8 @@ TYPE _GtkFileChooserWidget
   AS GtkBox parent_instance
   AS GtkFileChooserWidgetPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_file_chooser_error_get_type() AS GType
+#DEFINE GTK_TYPE_FILE_CHOOSER_ERROR (gtk_file_chooser_error_get_type())
 DECLARE FUNCTION gtk_file_chooser_widget_get_type() AS GType
 #DEFINE GTK_TYPE_FILE_CHOOSER_WIDGET (gtk_file_chooser_widget_get_type())
 #DEFINE GTK_FILE_CHOOSER_WIDGET(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_FILE_CHOOSER_WIDGET, GtkFileChooserWidget))
@@ -6473,6 +6521,10 @@ TYPE _GtkIconFactory
   AS GObject parent_instance
   AS GtkIconFactoryPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_im_preedit_style_get_type() AS GType
+#DEFINE GTK_TYPE_IM_PREEDIT_STYLE (gtk_im_preedit_style_get_type())
+DECLARE FUNCTION gtk_im_status_style_get_type() AS GType
+#DEFINE GTK_TYPE_IM_STATUS_STYLE (gtk_im_status_style_get_type())
 DECLARE FUNCTION gtk_icon_factory_get_type() AS GType
 #DEFINE GTK_TYPE_ICON_FACTORY (gtk_icon_factory_get_type())
 #DEFINE GTK_ICON_FACTORY(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_ICON_FACTORY, GtkIconFactory))
@@ -6533,6 +6585,8 @@ DECLARE FUNCTION gtk_icon_set_render_icon(BYVAL AS GtkIconSet PTR, BYVAL AS GtkS
 DECLARE FUNCTION gtk_icon_set_render_icon_pixbuf(BYVAL AS GtkIconSet PTR, BYVAL AS GtkStyleContext PTR, BYVAL AS GtkIconSize) AS GdkPixbuf PTR
 DECLARE FUNCTION gtk_icon_set_render_icon_surface(BYVAL AS GtkIconSet PTR, BYVAL AS GtkStyleContext PTR, BYVAL AS GtkIconSize, BYVAL AS gint /'int'/, BYVAL AS GdkWindow PTR) AS cairo_surface_t PTR
 DECLARE SUB gtk_icon_set_unref(BYVAL AS GtkIconSet PTR)
+DECLARE FUNCTION gtk_icon_size_get_type() AS GType
+#DEFINE GTK_TYPE_ICON_SIZE (gtk_icon_size_get_type())
 DECLARE FUNCTION gtk_icon_source_new() AS GtkIconSource PTR
 DECLARE FUNCTION gtk_icon_source_copy(BYVAL AS const GtkIconSource PTR) AS GtkIconSource PTR
 DECLARE SUB gtk_icon_source_free(BYVAL AS GtkIconSource PTR)
@@ -6599,6 +6653,8 @@ TYPE _GtkIconThemeClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_icon_theme_error_get_type() AS GType
+#DEFINE GTK_TYPE_ICON_THEME_ERROR (gtk_icon_theme_error_get_type())
 TYPE _GtkIconView
   AS GtkContainer parent
   AS GtkIconViewPrivate PTR priv
@@ -6703,6 +6759,8 @@ TYPE _GtkIconViewClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_icon_view_drop_position_get_type() AS GType
+#DEFINE GTK_TYPE_ICON_VIEW_DROP_POSITION (gtk_icon_view_drop_position_get_type())
 TYPE _GtkImage
   AS GtkMisc misc
   AS GtkImagePrivate PTR priv
@@ -6811,6 +6869,8 @@ TYPE _GtkInfoBar
   AS GtkBox parent
   AS GtkInfoBarPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_image_type_get_type() AS GType
+#DEFINE GTK_TYPE_IMAGE_TYPE (gtk_image_type_get_type())
 DECLARE FUNCTION gtk_info_bar_get_type() AS GType
 #DEFINE GTK_TYPE_INFO_BAR (gtk_info_bar_get_type())
 #DEFINE GTK_INFO_BAR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_INFO_BAR, GtkInfoBar))
@@ -6845,6 +6905,8 @@ TYPE _GtkInvisible
   AS GtkWidget widget
   AS GtkInvisiblePrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_input_purpose_get_type() AS GType
+#DEFINE GTK_TYPE_INPUT_PURPOSE (gtk_input_purpose_get_type())
 DECLARE FUNCTION gtk_invisible_get_type() AS GType
 #DEFINE GTK_TYPE_INVISIBLE (gtk_invisible_get_type())
 #DEFINE GTK_INVISIBLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_INVISIBLE, GtkInvisible))
@@ -6868,6 +6930,8 @@ TYPE _GtkLabelAccessible
   AS GtkWidgetAccessible parent
   AS GtkLabelAccessiblePrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_justification_get_type() AS GType
+#DEFINE GTK_TYPE_JUSTIFICATION (gtk_justification_get_type())
 DECLARE FUNCTION gtk_label_accessible_get_type() AS GType
 #DEFINE GTK_TYPE_LABEL_ACCESSIBLE (gtk_label_accessible_get_type())
 #DEFINE GTK_LABEL_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_LABEL_ACCESSIBLE, GtkLabelAccessible))
@@ -6951,10 +7015,14 @@ TYPE _GtkLevelBarClass
   offset_changed AS SUB CDECL(BYVAL AS GtkLevelBar PTR, BYVAL AS const gchar PTR)
   AS gpointer padding(15)
 END TYPE
+DECLARE FUNCTION gtk_level_bar_mode_get_type() AS GType
+#DEFINE GTK_TYPE_LEVEL_BAR_MODE (gtk_level_bar_mode_get_type())
 TYPE _GtkLinkButton
   AS GtkButton parent_instance
   AS GtkLinkButtonPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_license_get_type() AS GType
+#DEFINE GTK_TYPE_LICENSE (gtk_license_get_type())
 DECLARE FUNCTION gtk_link_button_get_type() AS GType
 #DEFINE GTK_TYPE_LINK_BUTTON (gtk_link_button_get_type())
 #DEFINE GTK_LINK_BUTTON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_LINK_BUTTON, GtkLinkButton))
@@ -7301,6 +7369,8 @@ TYPE _GtkMenuClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_menu_direction_type_get_type() AS GType
+#DEFINE GTK_TYPE_MENU_DIRECTION_TYPE (gtk_menu_direction_type_get_type())
 TYPE _GtkMenuToolButton
   AS GtkToolButton parent
   AS GtkMenuToolButtonPrivate PTR priv
@@ -7352,6 +7422,8 @@ TYPE _GtkMessageDialogClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_message_type_get_type() AS GType
+#DEFINE GTK_TYPE_MESSAGE_TYPE (gtk_message_type_get_type())
 DECLARE FUNCTION gtk_model_button_get_type() AS GType
 #DEFINE GTK_TYPE_MODEL_BUTTON (gtk_model_button_get_type())
 #DEFINE GTK_MODEL_BUTTON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_MODEL_BUTTON, GtkModelButton))
@@ -7390,6 +7462,8 @@ TYPE _GtkNotebook
   AS GtkContainer container
   AS GtkNotebookPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_movement_step_get_type() AS GType
+#DEFINE GTK_TYPE_MOVEMENT_STEP (gtk_movement_step_get_type())
 DECLARE FUNCTION gtk_notebook_get_type() AS GType
 #DEFINE GTK_TYPE_NOTEBOOK (gtk_notebook_get_type())
 #DEFINE GTK_NOTEBOOK(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_NOTEBOOK, GtkNotebook))
@@ -7498,6 +7572,10 @@ TYPE _GtkNumerableIcon
   AS GEmblemedIcon parent
   AS GtkNumerableIconPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_notebook_tab_get_type() AS GType
+#DEFINE GTK_TYPE_NOTEBOOK_TAB (gtk_notebook_tab_get_type())
+DECLARE FUNCTION gtk_number_up_layout_get_type() AS GType
+#DEFINE GTK_TYPE_NUMBER_UP_LAYOUT (gtk_number_up_layout_get_type())
 DECLARE FUNCTION gtk_numerable_icon_get_type() AS GType
 #DEFINE GTK_TYPE_NUMERABLE_ICON (gtk_numerable_icon_get_type())
 #DEFINE GTK_NUMERABLE_ICON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_NUMERABLE_ICON, GtkNumerableIcon))
@@ -7556,6 +7634,8 @@ TYPE _GtkOverlay
   AS GtkBin parent
   AS GtkOverlayPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_orientation_get_type() AS GType
+#DEFINE GTK_TYPE_ORIENTATION (gtk_orientation_get_type())
 DECLARE FUNCTION gtk_overlay_get_type() AS GType
 #DEFINE GTK_TYPE_OVERLAY (gtk_overlay_get_type())
 #DEFINE GTK_OVERLAY(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_OVERLAY, GtkOverlay))
@@ -7584,6 +7664,14 @@ TYPE _GtkPageRange
   AS gint start
   AS gint end
 END TYPE
+DECLARE FUNCTION gtk_pack_direction_get_type() AS GType
+#DEFINE GTK_TYPE_PACK_DIRECTION (gtk_pack_direction_get_type())
+DECLARE FUNCTION gtk_pack_type_get_type() AS GType
+#DEFINE GTK_TYPE_PACK_TYPE (gtk_pack_type_get_type())
+DECLARE FUNCTION gtk_page_orientation_get_type() AS GType
+#DEFINE GTK_TYPE_PAGE_ORIENTATION (gtk_page_orientation_get_type())
+DECLARE FUNCTION gtk_page_set_get_type() AS GType
+#DEFINE GTK_TYPE_PAGE_SET (gtk_page_set_get_type())
 DECLARE FUNCTION gtk_page_setup_get_type() AS GType
 #DEFINE GTK_TYPE_PAGE_SETUP (gtk_page_setup_get_type())
 #DEFINE GTK_PAGE_SETUP(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PAGE_SETUP, GtkPageSetup))
@@ -7621,6 +7709,8 @@ TYPE _GtkPanedAccessible
   AS GtkContainerAccessible parent
   AS GtkPanedAccessiblePrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_pan_direction_get_type() AS GType
+#DEFINE GTK_TYPE_PAN_DIRECTION (gtk_pan_direction_get_type())
 DECLARE FUNCTION gtk_paned_accessible_get_type() AS GType
 #DEFINE GTK_TYPE_PANED_ACCESSIBLE (gtk_paned_accessible_get_type())
 #DEFINE GTK_PANED_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PANED_ACCESSIBLE, GtkPanedAccessible))
@@ -7654,6 +7744,10 @@ DECLARE SUB gtk_paper_size_set_size(BYVAL AS GtkPaperSize PTR, BYVAL AS gdouble,
 DECLARE SUB gtk_paper_size_to_key_file(BYVAL AS GtkPaperSize PTR, BYVAL AS GKeyFile PTR, BYVAL AS const gchar PTR)
 DECLARE FUNCTION gtk_paper_size_get_default() AS const gchar PTR
 DECLARE FUNCTION gtk_paper_size_get_paper_sizes(BYVAL AS gboolean) AS GList PTR
+DECLARE FUNCTION gtk_path_priority_type_get_type() AS GType
+#DEFINE GTK_TYPE_PATH_PRIORITY_TYPE (gtk_path_priority_type_get_type())
+DECLARE FUNCTION gtk_path_type_get_type() AS GType
+#DEFINE GTK_TYPE_PATH_TYPE (gtk_path_type_get_type())
 DECLARE FUNCTION gtk_places_sidebar_get_type() AS GType
 #DEFINE GTK_TYPE_PLACES_SIDEBAR (gtk_places_sidebar_get_type())
 #DEFINE GTK_PLACES_SIDEBAR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PLACES_SIDEBAR, GtkPlacesSidebar))
@@ -7715,6 +7809,8 @@ TYPE _GtkPopover
   AS GtkBin parent_instance
   AS GtkPopoverPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_policy_type_get_type() AS GType
+#DEFINE GTK_TYPE_POLICY_TYPE (gtk_policy_type_get_type())
 DECLARE FUNCTION gtk_popover_get_type() AS GType
 #DEFINE GTK_TYPE_POPOVER (gtk_popover_get_type())
 #DEFINE GTK_POPOVER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_POPOVER, GtkPopover))
@@ -7768,6 +7864,8 @@ TYPE _GtkPopoverMenuClass
   AS GtkPopoverClass parent_class
   AS gpointer reserved(9)
 END TYPE
+DECLARE FUNCTION gtk_position_type_get_type() AS GType
+#DEFINE GTK_TYPE_POSITION_TYPE (gtk_position_type_get_type())
 DECLARE FUNCTION gtk_print_context_get_type() AS GType
 #DEFINE GTK_TYPE_PRINT_CONTEXT (gtk_print_context_get_type())
 #DEFINE GTK_PRINT_CONTEXT(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PRINT_CONTEXT, GtkPrintContext))
@@ -7790,6 +7888,10 @@ TYPE _GtkPrintOperation
   AS GObject parent_instance
   AS GtkPrintOperationPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_print_duplex_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_DUPLEX (gtk_print_duplex_get_type())
+DECLARE FUNCTION gtk_print_error_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_ERROR (gtk_print_error_get_type())
 DECLARE FUNCTION gtk_print_operation_get_type() AS GType
 #DEFINE GTK_TYPE_PRINT_OPERATION (gtk_print_operation_get_type())
 #DEFINE GTK_PRINT_OPERATION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PRINT_OPERATION, GtkPrintOperation))
@@ -7849,6 +7951,8 @@ TYPE _GtkPrintOperationClass
   _gtk_reserved7 AS SUB CDECL()
   _gtk_reserved8 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_print_operation_action_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_OPERATION_ACTION (gtk_print_operation_action_get_type())
 DECLARE FUNCTION gtk_print_operation_preview_get_type() AS GType
 #DEFINE GTK_TYPE_PRINT_OPERATION_PREVIEW (gtk_print_operation_preview_get_type())
 #DEFINE GTK_PRINT_OPERATION_PREVIEW(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PRINT_OPERATION_PREVIEW, GtkPrintOperationPreview))
@@ -7874,6 +7978,12 @@ TYPE _GtkPrintOperationPreviewIface
   _gtk_reserved7 AS SUB CDECL()
   _gtk_reserved8 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_print_operation_result_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_OPERATION_RESULT (gtk_print_operation_result_get_type())
+DECLARE FUNCTION gtk_print_pages_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_PAGES (gtk_print_pages_get_type())
+DECLARE FUNCTION gtk_print_quality_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_QUALITY (gtk_print_quality_get_type())
 DECLARE FUNCTION gtk_print_settings_get_type() AS GType
 #DEFINE GTK_TYPE_PRINT_SETTINGS (gtk_print_settings_get_type())
 #DEFINE GTK_PRINT_SETTINGS(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PRINT_SETTINGS, GtkPrintSettings))
@@ -7959,6 +8069,8 @@ TYPE _GtkProgressBar
   AS GtkWidget parent
   AS GtkProgressBarPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_print_status_get_type() AS GType
+#DEFINE GTK_TYPE_PRINT_STATUS (gtk_print_status_get_type())
 DECLARE FUNCTION gtk_progress_bar_get_type() AS GType
 #DEFINE GTK_TYPE_PROGRESS_BAR (gtk_progress_bar_get_type())
 #DEFINE GTK_PROGRESS_BAR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_PROGRESS_BAR, GtkProgressBar))
@@ -8005,6 +8117,8 @@ TYPE _GtkRadioAction
   AS GtkToggleAction parent
   AS GtkRadioActionPrivate PTR private_data
 END TYPE
+DECLARE FUNCTION gtk_propagation_phase_get_type() AS GType
+#DEFINE GTK_TYPE_PROPAGATION_PHASE (gtk_propagation_phase_get_type())
 DECLARE FUNCTION gtk_radio_action_get_type() AS GType
 #DEFINE GTK_TYPE_RADIO_ACTION (gtk_radio_action_get_type())
 #DEFINE GTK_RADIO_ACTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_RADIO_ACTION, GtkRadioAction))
@@ -8207,6 +8321,8 @@ TYPE _GtkRecentAction
   AS GtkAction parent_instance
   AS GtkRecentActionPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_rc_token_type_get_type() AS GType
+#DEFINE GTK_TYPE_RC_TOKEN_TYPE (gtk_rc_token_type_get_type())
 DECLARE FUNCTION gtk_recent_action_get_type() AS GType
 #DEFINE GTK_TYPE_RECENT_ACTION (gtk_recent_action_get_type())
 #DEFINE GTK_RECENT_ACTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_RECENT_ACTION, GtkRecentAction))
@@ -8299,6 +8415,8 @@ TYPE _GtkRecentChooserIface
   item_activated AS SUB CDECL(BYVAL AS GtkRecentChooser PTR)
   selection_changed AS SUB CDECL(BYVAL AS GtkRecentChooser PTR)
 END TYPE
+DECLARE FUNCTION gtk_recent_chooser_error_get_type() AS GType
+#DEFINE GTK_TYPE_RECENT_CHOOSER_ERROR (gtk_recent_chooser_error_get_type())
 TYPE _GtkRecentChooserMenu
   AS GtkMenu parent_instance
   AS GtkRecentChooserMenuPrivate PTR priv
@@ -8432,6 +8550,12 @@ TYPE _GtkRecentManagerClass
   _gtk_recent3 AS SUB CDECL()
   _gtk_recent4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_recent_manager_error_get_type() AS GType
+#DEFINE GTK_TYPE_RECENT_MANAGER_ERROR (gtk_recent_manager_error_get_type())
+DECLARE FUNCTION gtk_recent_sort_type_get_type() AS GType
+#DEFINE GTK_TYPE_RECENT_SORT_TYPE (gtk_recent_sort_type_get_type())
+DECLARE FUNCTION gtk_relief_style_get_type() AS GType
+#DEFINE GTK_TYPE_RELIEF_STYLE (gtk_relief_style_get_type())
 TYPE _GtkRequestedSize
   AS gpointer data
   AS gint minimum_size
@@ -8447,6 +8571,10 @@ DECLARE SUB gtk_requisition_free(BYVAL AS GtkRequisition PTR)
 TYPE _GtkRevealer
   AS GtkBin parent_instance
 END TYPE
+DECLARE FUNCTION gtk_resize_mode_get_type() AS GType
+#DEFINE GTK_TYPE_RESIZE_MODE (gtk_resize_mode_get_type())
+DECLARE FUNCTION gtk_response_type_get_type() AS GType
+#DEFINE GTK_TYPE_RESPONSE_TYPE (gtk_response_type_get_type())
 DECLARE FUNCTION gtk_revealer_get_type() AS GType
 #DEFINE GTK_TYPE_REVEALER (gtk_revealer_get_type())
 #DEFINE GTK_REVEALER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_REVEALER, GtkRevealer))
@@ -8469,6 +8597,8 @@ TYPE _GtkScaleAccessible
   AS GtkRangeAccessible parent
   AS GtkScaleAccessiblePrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_revealer_transition_type_get_type() AS GType
+#DEFINE GTK_TYPE_REVEALER_TRANSITION_TYPE (gtk_revealer_transition_type_get_type())
 DECLARE FUNCTION gtk_scale_accessible_get_type() AS GType
 #DEFINE GTK_TYPE_SCALE_ACCESSIBLE (gtk_scale_accessible_get_type())
 #DEFINE GTK_SCALE_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SCALE_ACCESSIBLE, GtkScaleAccessible))
@@ -8521,6 +8651,10 @@ TYPE _GtkScaleButtonClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_scroll_step_get_type() AS GType
+#DEFINE GTK_TYPE_SCROLL_STEP (gtk_scroll_step_get_type())
+DECLARE FUNCTION gtk_scroll_type_get_type() AS GType
+#DEFINE GTK_TYPE_SCROLL_TYPE (gtk_scroll_type_get_type())
 DECLARE FUNCTION gtk_scrollable_get_type() AS GType
 #DEFINE GTK_TYPE_SCROLLABLE (gtk_scrollable_get_type())
 #DEFINE GTK_SCROLLABLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SCROLLABLE, GtkScrollable))
@@ -8544,6 +8678,8 @@ TYPE _GtkScrolledWindow
   AS GtkBin container
   AS GtkScrolledWindowPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_scrollable_policy_get_type() AS GType
+#DEFINE GTK_TYPE_SCROLLABLE_POLICY (gtk_scrollable_policy_get_type())
 DECLARE FUNCTION gtk_scrolled_window_get_type() AS GType
 #DEFINE GTK_TYPE_SCROLLED_WINDOW (gtk_scrolled_window_get_type())
 #DEFINE GTK_SCROLLED_WINDOW(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SCROLLED_WINDOW, GtkScrolledWindow))
@@ -8668,6 +8804,10 @@ DECLARE FUNCTION gtk_selection_data_targets_include_uri(BYVAL AS const GtkSelect
 TYPE _GtkSeparatorMenuItem
   AS GtkMenuItem menu_item
 END TYPE
+DECLARE FUNCTION gtk_selection_mode_get_type() AS GType
+#DEFINE GTK_TYPE_SELECTION_MODE (gtk_selection_mode_get_type())
+DECLARE FUNCTION gtk_sensitivity_type_get_type() AS GType
+#DEFINE GTK_TYPE_SENSITIVITY_TYPE (gtk_sensitivity_type_get_type())
 DECLARE FUNCTION gtk_separator_menu_item_get_type() AS GType
 #DEFINE GTK_TYPE_SEPARATOR_MENU_ITEM (gtk_separator_menu_item_get_type())
 #DEFINE GTK_SEPARATOR_MENU_ITEM(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SEPARATOR_MENU_ITEM, GtkSeparatorMenuItem))
@@ -8738,6 +8878,8 @@ TYPE _GtkSizeGroup
   AS GObject parent_instance
   AS GtkSizeGroupPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_shadow_type_get_type() AS GType
+#DEFINE GTK_TYPE_SHADOW_TYPE (gtk_shadow_type_get_type())
 DECLARE FUNCTION gtk_size_group_get_type() AS GType
 #DEFINE GTK_TYPE_SIZE_GROUP (gtk_size_group_get_type())
 #DEFINE GTK_SIZE_GROUP(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SIZE_GROUP, GtkSizeGroup))
@@ -8760,10 +8902,14 @@ TYPE _GtkSizeGroupClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_size_group_mode_get_type() AS GType
+#DEFINE GTK_TYPE_SIZE_GROUP_MODE (gtk_size_group_mode_get_type())
 TYPE _GtkSocket
   AS GtkContainer container
   AS GtkSocketPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_size_request_mode_get_type() AS GType
+#DEFINE GTK_TYPE_SIZE_REQUEST_MODE (gtk_size_request_mode_get_type())
 DECLARE FUNCTION gtk_socket_get_type() AS GType
 #DEFINE GTK_TYPE_SOCKET (gtk_socket_get_type())
 #DEFINE GTK_SOCKET(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SOCKET, GtkSocket))
@@ -8788,6 +8934,8 @@ TYPE _GtkSpinButton
   AS GtkEntry entry
   AS GtkSpinButtonPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_sort_type_get_type() AS GType
+#DEFINE GTK_TYPE_SORT_TYPE (gtk_sort_type_get_type())
 DECLARE FUNCTION gtk_spin_button_get_type() AS GType
 #DEFINE GTK_TYPE_SPIN_BUTTON (gtk_spin_button_get_type())
 #DEFINE GTK_SPIN_BUTTON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SPIN_BUTTON, GtkSpinButton))
@@ -8849,6 +8997,10 @@ TYPE _GtkSpinner
   AS GtkWidget parent
   AS GtkSpinnerPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_spin_button_update_policy_get_type() AS GType
+#DEFINE GTK_TYPE_SPIN_BUTTON_UPDATE_POLICY (gtk_spin_button_update_policy_get_type())
+DECLARE FUNCTION gtk_spin_type_get_type() AS GType
+#DEFINE GTK_TYPE_SPIN_TYPE (gtk_spin_type_get_type())
 DECLARE FUNCTION gtk_spinner_get_type() AS GType
 #DEFINE GTK_TYPE_SPINNER (gtk_spinner_get_type())
 #DEFINE GTK_SPINNER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_SPINNER, GtkSpinner))
@@ -8959,6 +9111,10 @@ TYPE _GtkStatusIcon
   AS GObject parent_instance
   AS GtkStatusIconPrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_stack_transition_type_get_type() AS GType
+#DEFINE GTK_TYPE_STACK_TRANSITION_TYPE (gtk_stack_transition_type_get_type())
+DECLARE FUNCTION gtk_state_type_get_type() AS GType
+#DEFINE GTK_TYPE_STATE_TYPE (gtk_state_type_get_type())
 DECLARE FUNCTION gtk_status_icon_get_type() AS GType
 #DEFINE GTK_TYPE_STATUS_ICON (gtk_status_icon_get_type())
 #DEFINE GTK_STATUS_ICON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_STATUS_ICON, GtkStatusIcon))
@@ -9571,6 +9727,8 @@ TYPE _GtkTextCellAccessible
   AS GtkRendererCellAccessible parent
   AS GtkTextCellAccessiblePrivate PTR priv
 END TYPE
+DECLARE FUNCTION gtk_text_buffer_target_info_get_type() AS GType
+#DEFINE GTK_TYPE_TEXT_BUFFER_TARGET_INFO (gtk_text_buffer_target_info_get_type())
 DECLARE FUNCTION gtk_text_cell_accessible_get_type() AS GType
 #DEFINE GTK_TYPE_TEXT_CELL_ACCESSIBLE (gtk_text_cell_accessible_get_type())
 #DEFINE GTK_TEXT_CELL_ACCESSIBLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_TEXT_CELL_ACCESSIBLE, GtkTextCellAccessible))
@@ -9619,6 +9777,10 @@ TYPE _GtkTextIter
   AS gint dummy13
   AS gpointer dummy14
 END TYPE
+DECLARE FUNCTION gtk_text_direction_get_type() AS GType
+#DEFINE GTK_TYPE_TEXT_DIRECTION (gtk_text_direction_get_type())
+DECLARE FUNCTION gtk_text_extend_selection_get_type() AS GType
+#DEFINE GTK_TYPE_TEXT_EXTEND_SELECTION (gtk_text_extend_selection_get_type())
 DECLARE SUB gtk_text_iter_assign(BYVAL AS GtkTextIter PTR, BYVAL AS const GtkTextIter PTR)
 DECLARE FUNCTION gtk_text_iter_backward_char(BYVAL AS GtkTextIter PTR) AS gboolean
 DECLARE FUNCTION gtk_text_iter_backward_chars(BYVAL AS GtkTextIter PTR, BYVAL AS gint) AS gboolean
@@ -9903,6 +10065,10 @@ TYPE _GtkTextViewClass
   _gtk_reserved4 AS SUB CDECL()
   _gtk_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_text_view_layer_get_type() AS GType
+#DEFINE GTK_TYPE_TEXT_VIEW_LAYER (gtk_text_view_layer_get_type())
+DECLARE FUNCTION gtk_text_window_type_get_type() AS GType
+#DEFINE GTK_TYPE_TEXT_WINDOW_TYPE (gtk_text_window_type_get_type())
 TYPE _GtkThemingEngine
   AS GObject parent_object
   AS GtkThemingEnginePrivate PTR priv
@@ -10107,6 +10273,10 @@ TYPE _GtkToolbarClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_toolbar_space_style_get_type() AS GType
+#DEFINE GTK_TYPE_TOOLBAR_SPACE_STYLE (gtk_toolbar_space_style_get_type())
+DECLARE FUNCTION gtk_toolbar_style_get_type() AS GType
+#DEFINE GTK_TYPE_TOOLBAR_STYLE (gtk_toolbar_style_get_type())
 DECLARE FUNCTION gtk_tooltip_get_type() AS GType
 #DEFINE GTK_TYPE_TOOLTIP (gtk_tooltip_get_type())
 #DEFINE GTK_TOOLTIP(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_TOOLTIP, GtkTooltip))
@@ -10646,6 +10816,12 @@ TYPE _GtkTreeViewColumnClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_tree_view_column_sizing_get_type() AS GType
+#DEFINE GTK_TYPE_TREE_VIEW_COLUMN_SIZING (gtk_tree_view_column_sizing_get_type())
+DECLARE FUNCTION gtk_tree_view_drop_position_get_type() AS GType
+#DEFINE GTK_TYPE_TREE_VIEW_DROP_POSITION (gtk_tree_view_drop_position_get_type())
+DECLARE FUNCTION gtk_tree_view_grid_lines_get_type() AS GType
+#DEFINE GTK_TYPE_TREE_VIEW_GRID_LINES (gtk_tree_view_grid_lines_get_type())
 TYPE _GtkUIManager
   AS GObject parent
   AS GtkUIManagerPrivate PTR private_data
@@ -10693,6 +10869,8 @@ END TYPE
 TYPE _GtkVBox
   AS GtkBox box
 END TYPE
+DECLARE FUNCTION gtk_unit_get_type() AS GType
+#DEFINE GTK_TYPE_UNIT (gtk_unit_get_type())
 DECLARE FUNCTION gtk_vbox_get_type() AS GType
 #DEFINE GTK_TYPE_VBOX (gtk_vbox_get_type())
 #DEFINE GTK_VBOX(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_TYPE_VBOX, GtkVBox))
@@ -10820,6 +10998,8 @@ TYPE _GtkVolumeButtonClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_widget_help_type_get_type() AS GType
+#DEFINE GTK_TYPE_WIDGET_HELP_TYPE (gtk_widget_help_type_get_type())
 DECLARE FUNCTION gtk_widget_path_new() AS GtkWidgetPath PTR
 DECLARE FUNCTION gtk_widget_path_append_for_widget(BYVAL AS GtkWidgetPath PTR, BYVAL AS GtkWidget PTR) AS gint
 DECLARE FUNCTION gtk_widget_path_append_type(BYVAL AS GtkWidgetPath PTR, BYVAL AS GType) AS gint
@@ -10895,6 +11075,8 @@ TYPE _GtkWindowGroupClass
   _gtk_reserved3 AS SUB CDECL()
   _gtk_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION gtk_window_position_get_type() AS GType
+#DEFINE GTK_TYPE_WINDOW_POSITION (gtk_window_position_get_type())
 ' P_4
 
 DECLARE FUNCTION gtk_accel_groups_activate(BYVAL AS GObject PTR, BYVAL AS guint, BYVAL AS GdkModifierType) AS gboolean

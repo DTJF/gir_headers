@@ -339,7 +339,15 @@ UNION hb_var_int_t
 END UNION
 ' P_3
 
+DECLARE FUNCTION hb_gobject_buffer_cluster_level_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_BUFFER_CLUSTER_LEVEL (hb_gobject_buffer_cluster_level_get_type())
+DECLARE FUNCTION hb_gobject_buffer_content_type_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_BUFFER_CONTENT_TYPE (hb_gobject_buffer_content_type_get_type())
+DECLARE FUNCTION hb_gobject_buffer_serialize_format_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_BUFFER_SERIALIZE_FORMAT (hb_gobject_buffer_serialize_format_get_type())
 TYPE hb_destroy_func_t AS SUB CDECL(BYVAL AS any /'void'/ PTR)
+DECLARE FUNCTION hb_gobject_direction_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_DIRECTION (hb_gobject_direction_get_type())
 TYPE _hb_feature_t
   AS hb_tag_t tag
   AS guint32 /'uint32_t'/ value
@@ -384,17 +392,27 @@ TYPE _hb_segment_properties_t
   AS any /'void'/ PTR reserved1
   AS any /'void'/ PTR reserved2
 END TYPE
+DECLARE FUNCTION hb_gobject_memory_mode_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_MEMORY_MODE (hb_gobject_memory_mode_get_type())
+DECLARE FUNCTION hb_gobject_ot_layout_glyph_class_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_OT_LAYOUT_GLYPH_CLASS (hb_gobject_ot_layout_glyph_class_get_type())
+DECLARE FUNCTION hb_gobject_script_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_SCRIPT (hb_gobject_script_get_type())
 TYPE hb_unicode_combining_class_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS any /'void'/ PTR) AS hb_unicode_combining_class_t
 TYPE hb_unicode_compose_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS hb_codepoint_t, BYVAL AS hb_codepoint_t PTR, BYVAL AS any /'void'/ PTR) AS hb_bool_t
 TYPE hb_unicode_decompose_compatibility_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS hb_codepoint_t PTR, BYVAL AS any /'void'/ PTR) AS guint /'unsigned int'/
 TYPE hb_unicode_decompose_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS hb_codepoint_t PTR, BYVAL AS hb_codepoint_t PTR, BYVAL AS any /'void'/ PTR) AS hb_bool_t
 TYPE hb_unicode_eastasian_width_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS any /'void'/ PTR) AS guint /'unsigned int'/
+DECLARE FUNCTION hb_gobject_unicode_combining_class_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_UNICODE_COMBINING_CLASS (hb_gobject_unicode_combining_class_get_type())
 TYPE hb_unicode_general_category_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS any /'void'/ PTR) AS hb_unicode_general_category_t
 TYPE hb_unicode_mirroring_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS any /'void'/ PTR) AS hb_codepoint_t
 TYPE hb_unicode_script_func_t AS FUNCTION CDECL(BYVAL AS hb_unicode_funcs_t PTR, BYVAL AS hb_codepoint_t, BYVAL AS any /'void'/ PTR) AS hb_script_t
 TYPE _hb_user_data_key_t
   AS char /'?'/ unused
 END TYPE
+DECLARE FUNCTION hb_gobject_unicode_general_category_get_type() AS GType
+#DEFINE HB_TYPE_GOBJECT_UNICODE_GENERAL_CATEGORY (hb_gobject_unicode_general_category_get_type())
 ' P_4
 
 DECLARE FUNCTION hb_blob_create(BYVAL AS const gchar /'const char'/ PTR, BYVAL AS guint /'unsigned int'/, BYVAL AS hb_memory_mode_t, BYVAL AS any /'void'/ PTR, BYVAL AS hb_destroy_func_t) AS hb_blob_t PTR

@@ -654,6 +654,8 @@ TYPE _SoupAuth
   AS GObject parent
   AS char PTR realm
 END TYPE
+DECLARE FUNCTION soup_address_family_get_type() AS GType
+#DEFINE SOUP_TYPE_ADDRESS_FAMILY (soup_address_family_get_type())
 DECLARE FUNCTION soup_auth_get_type() AS GType
 #DEFINE SOUP_TYPE_AUTH (soup_auth_get_type())
 #DEFINE SOUP_AUTH(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), SOUP_TYPE_AUTH, SoupAuth))
@@ -827,6 +829,10 @@ TYPE _SoupCacheClass
   _libsoup_reserved3 AS SUB CDECL()
 END TYPE
 TYPE SoupChunkAllocator AS FUNCTION CDECL(BYVAL AS SoupMessage PTR, BYVAL AS gsize, BYVAL AS gpointer) AS SoupBuffer PTR
+DECLARE FUNCTION soup_cache_response_get_type() AS GType
+#DEFINE SOUP_TYPE_CACHE_RESPONSE (soup_cache_response_get_type())
+DECLARE FUNCTION soup_cache_type_get_type() AS GType
+#DEFINE SOUP_TYPE_CACHE_TYPE (soup_cache_type_get_type())
 DECLARE FUNCTION soup_client_context_get_address(BYVAL AS SoupClientContext PTR) AS SoupAddress PTR
 DECLARE FUNCTION soup_client_context_get_auth_domain(BYVAL AS SoupClientContext PTR) AS SoupAuthDomain PTR
 DECLARE FUNCTION soup_client_context_get_auth_user(BYVAL AS SoupClientContext PTR) AS const char PTR
@@ -840,6 +846,8 @@ TYPE _SoupContentDecoder
   AS GObject parent
   AS SoupContentDecoderPrivate PTR priv
 END TYPE
+DECLARE FUNCTION soup_connection_state_get_type() AS GType
+#DEFINE SOUP_TYPE_CONNECTION_STATE (soup_connection_state_get_type())
 DECLARE FUNCTION soup_content_decoder_get_type() AS GType
 #DEFINE SOUP_TYPE_CONTENT_DECODER (soup_content_decoder_get_type())
 #DEFINE SOUP_CONTENT_DECODER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), SOUP_TYPE_CONTENT_DECODER, SoupContentDecoder))
@@ -943,6 +951,8 @@ TYPE _SoupCookieJarClass
   _libsoup_reserved1 AS SUB CDECL()
   _libsoup_reserved2 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION soup_cookie_jar_accept_policy_get_type() AS GType
+#DEFINE SOUP_TYPE_COOKIE_JAR_ACCEPT_POLICY (soup_cookie_jar_accept_policy_get_type())
 TYPE _SoupCookieJarDB
   AS SoupCookieJar parent
 END TYPE
@@ -1010,6 +1020,14 @@ DECLARE SUB soup_date_to_timeval(BYVAL AS SoupDate PTR, BYVAL AS GTimeVal PTR)
 TYPE _SoupLogger
   AS GObject parent
 END TYPE
+DECLARE FUNCTION soup_date_format_get_type() AS GType
+#DEFINE SOUP_TYPE_DATE_FORMAT (soup_date_format_get_type())
+DECLARE FUNCTION soup_encoding_get_type() AS GType
+#DEFINE SOUP_TYPE_ENCODING (soup_encoding_get_type())
+DECLARE FUNCTION soup_http_version_get_type() AS GType
+#DEFINE SOUP_TYPE_HTTP_VERSION (soup_http_version_get_type())
+DECLARE FUNCTION soup_known_status_code_get_type() AS GType
+#DEFINE SOUP_TYPE_KNOWN_STATUS_CODE (soup_known_status_code_get_type())
 DECLARE FUNCTION soup_logger_get_type() AS GType
 #DEFINE SOUP_TYPE_LOGGER (soup_logger_get_type())
 #DEFINE SOUP_LOGGER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), SOUP_TYPE_LOGGER, SoupLogger))
@@ -1040,6 +1058,10 @@ TYPE _SoupMessage
   AS SoupMessageBody PTR response_body
   AS SoupMessageHeaders PTR response_headers
 END TYPE
+DECLARE FUNCTION soup_logger_log_level_get_type() AS GType
+#DEFINE SOUP_TYPE_LOGGER_LOG_LEVEL (soup_logger_log_level_get_type())
+DECLARE FUNCTION soup_memory_use_get_type() AS GType
+#DEFINE SOUP_TYPE_MEMORY_USE (soup_memory_use_get_type())
 DECLARE FUNCTION soup_message_get_type() AS GType
 #DEFINE SOUP_TYPE_MESSAGE (soup_message_get_type())
 #DEFINE SOUP_MESSAGE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), SOUP_TYPE_MESSAGE, SoupMessage))
@@ -1154,6 +1176,10 @@ TYPE _SoupMessageHeadersIter
 END TYPE
 DECLARE FUNCTION soup_message_headers_iter_next(BYVAL AS SoupMessageHeadersIter PTR, BYVAL AS const char PTR PTR, BYVAL AS const char PTR PTR) AS gboolean
 DECLARE SUB soup_message_headers_iter_init(BYVAL AS SoupMessageHeadersIter PTR, BYVAL AS SoupMessageHeaders PTR)
+DECLARE FUNCTION soup_message_headers_type_get_type() AS GType
+#DEFINE SOUP_TYPE_MESSAGE_HEADERS_TYPE (soup_message_headers_type_get_type())
+DECLARE FUNCTION soup_message_priority_get_type() AS GType
+#DEFINE SOUP_TYPE_MESSAGE_PRIORITY (soup_message_priority_get_type())
 DECLARE FUNCTION soup_multipart_new(BYVAL AS const char PTR) AS SoupMultipart PTR
 DECLARE FUNCTION soup_multipart_new_from_message(BYVAL AS SoupMessageHeaders PTR, BYVAL AS SoupMessageBody PTR) AS SoupMultipart PTR
 DECLARE SUB soup_multipart_append_form_file(BYVAL AS SoupMultipart PTR, BYVAL AS const char PTR, BYVAL AS const char PTR, BYVAL AS const char PTR, BYVAL AS SoupBuffer PTR)
@@ -1275,6 +1301,8 @@ TYPE _SoupRequestFile
   AS SoupRequest parent
   AS SoupRequestFilePrivate PTR priv
 END TYPE
+DECLARE FUNCTION soup_request_error_get_type() AS GType
+#DEFINE SOUP_TYPE_REQUEST_ERROR (soup_request_error_get_type())
 DECLARE FUNCTION soup_request_file_get_type() AS GType
 #DEFINE SOUP_TYPE_REQUEST_FILE (soup_request_file_get_type())
 #DEFINE SOUP_REQUEST_FILE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), SOUP_TYPE_REQUEST_FILE, SoupRequestFile))
@@ -1318,6 +1346,8 @@ DECLARE FUNCTION soup_requester_request_uri(BYVAL AS SoupRequester PTR, BYVAL AS
 TYPE _SoupRequesterClass
   AS GObjectClass parent_class
 END TYPE
+DECLARE FUNCTION soup_requester_error_get_type() AS GType
+#DEFINE SOUP_TYPE_REQUESTER_ERROR (soup_requester_error_get_type())
 TYPE _SoupServer
   AS GObject parent
 END TYPE
@@ -1513,6 +1543,12 @@ TYPE _SoupURI
   AS char PTR query
   AS char PTR fragment
 END TYPE
+DECLARE FUNCTION soup_socket_io_status_get_type() AS GType
+#DEFINE SOUP_TYPE_SOCKET_IO_STATUS (soup_socket_io_status_get_type())
+DECLARE FUNCTION soup_status_get_type() AS GType
+#DEFINE SOUP_TYPE_STATUS (soup_status_get_type())
+DECLARE FUNCTION soup_tld_error_get_type() AS GType
+#DEFINE SOUP_TYPE_TLD_ERROR (soup_tld_error_get_type())
 DECLARE FUNCTION soup_uri_new(BYVAL AS const char PTR) AS SoupURI PTR
 DECLARE FUNCTION soup_uri_copy(BYVAL AS SoupURI PTR) AS SoupURI PTR
 DECLARE FUNCTION soup_uri_copy_host(BYVAL AS SoupURI PTR) AS SoupURI PTR
@@ -1548,6 +1584,8 @@ TYPE _SoupWebsocketConnection
   AS GObject parent
   AS SoupWebsocketConnectionPrivate PTR pv
 END TYPE
+DECLARE FUNCTION soup_websocket_close_code_get_type() AS GType
+#DEFINE SOUP_TYPE_WEBSOCKET_CLOSE_CODE (soup_websocket_close_code_get_type())
 DECLARE FUNCTION soup_websocket_connection_get_type() AS GType
 #DEFINE SOUP_TYPE_WEBSOCKET_CONNECTION (soup_websocket_connection_get_type())
 #DEFINE SOUP_WEBSOCKET_CONNECTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), SOUP_TYPE_WEBSOCKET_CONNECTION, SoupWebsocketConnection))
@@ -1574,6 +1612,18 @@ TYPE _SoupWebsocketConnectionClass
   closing AS SUB CDECL(BYVAL AS SoupWebsocketConnection PTR)
   closed AS SUB CDECL(BYVAL AS SoupWebsocketConnection PTR)
 END TYPE
+DECLARE FUNCTION soup_websocket_connection_type_get_type() AS GType
+#DEFINE SOUP_TYPE_WEBSOCKET_CONNECTION_TYPE (soup_websocket_connection_type_get_type())
+DECLARE FUNCTION soup_websocket_data_type_get_type() AS GType
+#DEFINE SOUP_TYPE_WEBSOCKET_DATA_TYPE (soup_websocket_data_type_get_type())
+DECLARE FUNCTION soup_websocket_error_get_type() AS GType
+#DEFINE SOUP_TYPE_WEBSOCKET_ERROR (soup_websocket_error_get_type())
+DECLARE FUNCTION soup_websocket_state_get_type() AS GType
+#DEFINE SOUP_TYPE_WEBSOCKET_STATE (soup_websocket_state_get_type())
+DECLARE FUNCTION soup_xmlrpc_error_get_type() AS GType
+#DEFINE SOUP_TYPE_XMLRPC_ERROR (soup_xmlrpc_error_get_type())
+DECLARE FUNCTION soup_xmlrpc_fault_get_type() AS GType
+#DEFINE SOUP_TYPE_XMLRPC_FAULT (soup_xmlrpc_fault_get_type())
 DECLARE SUB soup_xmlrpc_params_free(BYVAL AS SoupXMLRPCParams PTR)
 DECLARE FUNCTION soup_xmlrpc_params_parse(BYVAL AS SoupXMLRPCParams PTR, BYVAL AS const char PTR, BYVAL AS GError PTR PTR) AS GVariant PTR
 ' P_4

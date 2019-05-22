@@ -1894,6 +1894,8 @@ TYPE GBusNameAcquiredCallback AS SUB CDECL(BYVAL AS GDBusConnection PTR, BYVAL A
 TYPE GBusNameAppearedCallback AS SUB CDECL(BYVAL AS GDBusConnection PTR, BYVAL AS const gchar PTR, BYVAL AS const gchar PTR, BYVAL AS gpointer)
 TYPE GBusNameLostCallback AS SUB CDECL(BYVAL AS GDBusConnection PTR, BYVAL AS const gchar PTR, BYVAL AS gpointer)
 TYPE GBusNameVanishedCallback AS SUB CDECL(BYVAL AS GDBusConnection PTR, BYVAL AS const gchar PTR, BYVAL AS gpointer)
+DECLARE FUNCTION g_bus_type_get_type() AS GType
+#DEFINE G_TYPE_BUS_TYPE (g_bus_type_get_type())
 DECLARE FUNCTION g_bytes_icon_get_type() AS GType
 #DEFINE G_TYPE_BYTES_ICON (g_bytes_icon_get_type())
 #DEFINE G_BYTES_ICON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_BYTES_ICON, GBytesIcon))
@@ -2007,6 +2009,8 @@ TYPE _GConverterOutputStreamClass
   _g_reserved4 AS SUB CDECL()
   _g_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_converter_result_get_type() AS GType
+#DEFINE G_TYPE_CONVERTER_RESULT (g_converter_result_get_type())
 DECLARE FUNCTION g_credentials_get_type() AS GType
 #DEFINE G_TYPE_CREDENTIALS (g_credentials_get_type())
 #DEFINE G_CREDENTIALS(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_CREDENTIALS, GCredentials))
@@ -2022,6 +2026,8 @@ DECLARE FUNCTION g_credentials_is_same_user(BYVAL AS GCredentials PTR, BYVAL AS 
 DECLARE SUB g_credentials_set_native(BYVAL AS GCredentials PTR, BYVAL AS GCredentialsType, BYVAL AS gpointer)
 DECLARE FUNCTION g_credentials_set_unix_user(BYVAL AS GCredentials PTR, BYVAL AS gint32 /'uid_t'/, BYVAL AS GError PTR PTR) AS gboolean
 DECLARE FUNCTION g_credentials_to_string(BYVAL AS GCredentials PTR) AS gchar PTR
+DECLARE FUNCTION g_credentials_type_get_type() AS GType
+#DEFINE G_TYPE_CREDENTIALS_TYPE (g_credentials_type_get_type())
 DECLARE FUNCTION g_dbus_action_group_get_type() AS GType
 #DEFINE G_TYPE_DBUS_ACTION_GROUP (g_dbus_action_group_get_type())
 #DEFINE G_DBUS_ACTION_GROUP(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_DBUS_ACTION_GROUP, GDBusActionGroup))
@@ -2114,6 +2120,8 @@ TYPE _GDBusErrorEntry
   AS gint error_code
   AS const gchar PTR dbus_error_name
 END TYPE
+DECLARE FUNCTION g_dbus_error_get_type() AS GType
+#DEFINE G_TYPE_DBUS_ERROR (g_dbus_error_get_type())
 DECLARE FUNCTION g_dbus_interface_get_type() AS GType
 #DEFINE G_TYPE_DBUS_INTERFACE (g_dbus_interface_get_type())
 #DEFINE G_DBUS_INTERFACE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_DBUS_INTERFACE, GDBusInterface))
@@ -2261,6 +2269,12 @@ TYPE _GDBusMethodInfo
   AS GDBusArgInfo PTR out_args
   AS GDBusAnnotationInfo PTR annotations
 END TYPE
+DECLARE FUNCTION g_dbus_message_byte_order_get_type() AS GType
+#DEFINE G_TYPE_DBUS_MESSAGE_BYTE_ORDER (g_dbus_message_byte_order_get_type())
+DECLARE FUNCTION g_dbus_message_header_field_get_type() AS GType
+#DEFINE G_TYPE_DBUS_MESSAGE_HEADER_FIELD (g_dbus_message_header_field_get_type())
+DECLARE FUNCTION g_dbus_message_type_get_type() AS GType
+#DEFINE G_TYPE_DBUS_MESSAGE_TYPE (g_dbus_message_type_get_type())
 DECLARE FUNCTION g_dbus_method_info_ref(BYVAL AS GDBusMethodInfo PTR) AS GDBusMethodInfo PTR
 DECLARE SUB g_dbus_method_info_unref(BYVAL AS GDBusMethodInfo PTR)
 DECLARE FUNCTION g_dbus_method_invocation_get_type() AS GType
@@ -2580,6 +2594,10 @@ TYPE _GDataOutputStreamClass
   _g_reserved4 AS SUB CDECL()
   _g_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_data_stream_byte_order_get_type() AS GType
+#DEFINE G_TYPE_DATA_STREAM_BYTE_ORDER (g_data_stream_byte_order_get_type())
+DECLARE FUNCTION g_data_stream_newline_type_get_type() AS GType
+#DEFINE G_TYPE_DATA_STREAM_NEWLINE_TYPE (g_data_stream_newline_type_get_type())
 DECLARE FUNCTION g_datagram_based_get_type() AS GType
 #DEFINE G_TYPE_DATAGRAM_BASED (g_datagram_based_get_type())
 #DEFINE G_DATAGRAM_BASED(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_DATAGRAM_BASED, GDatagramBased))
@@ -2709,6 +2727,8 @@ TYPE _GDriveIface
   get_sort_key AS FUNCTION CDECL(BYVAL AS GDrive PTR) AS const gchar PTR
   get_symbolic_icon AS FUNCTION CDECL(BYVAL AS GDrive PTR) AS GIcon PTR
 END TYPE
+DECLARE FUNCTION g_drive_start_stop_type_get_type() AS GType
+#DEFINE G_TYPE_DRIVE_START_STOP_TYPE (g_drive_start_stop_type_get_type())
 DECLARE FUNCTION g_emblem_get_type() AS GType
 #DEFINE G_TYPE_EMBLEM (g_emblem_get_type())
 #DEFINE G_EMBLEM(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_EMBLEM, GEmblem))
@@ -2724,6 +2744,8 @@ TYPE _GEmblemedIcon
   AS GObject parent_instance
   AS GEmblemedIconPrivate PTR priv
 END TYPE
+DECLARE FUNCTION g_emblem_origin_get_type() AS GType
+#DEFINE G_TYPE_EMBLEM_ORIGIN (g_emblem_origin_get_type())
 DECLARE FUNCTION g_emblemed_icon_get_type() AS GType
 #DEFINE G_TYPE_EMBLEMED_ICON (g_emblemed_icon_get_type())
 #DEFINE G_EMBLEMED_ICON(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_EMBLEMED_ICON, GEmblemedIcon))
@@ -2893,6 +2915,10 @@ DECLARE FUNCTION g_file_attribute_matcher_ref(BYVAL AS GFileAttributeMatcher PTR
 DECLARE FUNCTION g_file_attribute_matcher_subtract(BYVAL AS GFileAttributeMatcher PTR, BYVAL AS GFileAttributeMatcher PTR) AS GFileAttributeMatcher PTR
 DECLARE FUNCTION g_file_attribute_matcher_to_string(BYVAL AS GFileAttributeMatcher PTR) AS zstring /'char'/ PTR
 DECLARE SUB g_file_attribute_matcher_unref(BYVAL AS GFileAttributeMatcher PTR)
+DECLARE FUNCTION g_file_attribute_status_get_type() AS GType
+#DEFINE G_TYPE_FILE_ATTRIBUTE_STATUS (g_file_attribute_status_get_type())
+DECLARE FUNCTION g_file_attribute_type_get_type() AS GType
+#DEFINE G_TYPE_FILE_ATTRIBUTE_TYPE (g_file_attribute_type_get_type())
 DECLARE FUNCTION g_file_descriptor_based_get_type() AS GType
 #DEFINE G_TYPE_FILE_DESCRIPTOR_BASED (g_file_descriptor_based_get_type())
 #DEFINE G_FILE_DESCRIPTOR_BASED(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_FILE_DESCRIPTOR_BASED, GFileDescriptorBased))
@@ -3213,6 +3239,8 @@ TYPE _GFileMonitorClass
   _g_reserved4 AS SUB CDECL()
   _g_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_file_monitor_event_get_type() AS GType
+#DEFINE G_TYPE_FILE_MONITOR_EVENT (g_file_monitor_event_get_type())
 TYPE _GFileOutputStream
   AS GOutputStream parent_instance
   AS GFileOutputStreamPrivate PTR priv
@@ -3245,6 +3273,8 @@ TYPE _GFileOutputStreamClass
   _g_reserved4 AS SUB CDECL()
   _g_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_file_type_get_type() AS GType
+#DEFINE G_TYPE_FILE_TYPE (g_file_type_get_type())
 DECLARE FUNCTION g_filename_completer_get_type() AS GType
 #DEFINE G_TYPE_FILENAME_COMPLETER (g_filename_completer_get_type())
 #DEFINE G_FILENAME_COMPLETER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_FILENAME_COMPLETER, GFilenameCompleter))
@@ -3263,6 +3293,10 @@ TYPE _GFilenameCompleterClass
   _g_reserved2 AS SUB CDECL()
   _g_reserved3 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_filesystem_preview_type_get_type() AS GType
+#DEFINE G_TYPE_FILESYSTEM_PREVIEW_TYPE (g_filesystem_preview_type_get_type())
+DECLARE FUNCTION g_io_error_enum_get_type() AS GType
+#DEFINE G_TYPE_IO_ERROR_ENUM (g_io_error_enum_get_type())
 DECLARE FUNCTION g_io_extension_get_name(BYVAL AS GIOExtension PTR) AS const char PTR
 DECLARE FUNCTION g_io_extension_get_priority(BYVAL AS GIOExtension PTR) AS gint
 DECLARE FUNCTION g_io_extension_get_type(BYVAL AS GIOExtension PTR) AS GType
@@ -3288,6 +3322,8 @@ DECLARE SUB g_io_module_unload(BYVAL AS GIOModule PTR)
 DECLARE SUB g_io_module_scope_block(BYVAL AS GIOModuleScope PTR, BYVAL AS const gchar PTR)
 DECLARE SUB g_io_module_scope_free(BYVAL AS GIOModuleScope PTR)
 DECLARE FUNCTION g_io_module_scope_new(BYVAL AS GIOModuleScopeFlags) AS GIOModuleScope PTR
+DECLARE FUNCTION g_io_module_scope_flags_get_type() AS GType
+#DEFINE G_TYPE_IO_MODULE_SCOPE_FLAGS (g_io_module_scope_flags_get_type())
 DECLARE FUNCTION g_io_scheduler_job_send_to_mainloop(BYVAL AS GIOSchedulerJob PTR, BYVAL AS GSourceFunc, BYVAL AS gpointer, BYVAL AS GDestroyNotify) AS gboolean
 DECLARE SUB g_io_scheduler_job_send_to_mainloop_async(BYVAL AS GIOSchedulerJob PTR, BYVAL AS GSourceFunc, BYVAL AS gpointer, BYVAL AS GDestroyNotify)
 TYPE GIOSchedulerJobFunc AS FUNCTION CDECL(BYVAL AS GIOSchedulerJob PTR, BYVAL AS GCancellable PTR, BYVAL AS gpointer) AS gboolean
@@ -3723,6 +3759,8 @@ TYPE _GMountOperationClass
   _g_reserved8 AS SUB CDECL()
   _g_reserved9 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_mount_operation_result_get_type() AS GType
+#DEFINE G_TYPE_MOUNT_OPERATION_RESULT (g_mount_operation_result_get_type())
 TYPE _GNativeVolumeMonitor
   AS GVolumeMonitor parent_instance
 END TYPE
@@ -3758,6 +3796,8 @@ DECLARE FUNCTION g_network_address_get_scheme(BYVAL AS GNetworkAddress PTR) AS c
 TYPE _GNetworkAddressClass
   AS GObjectClass parent_class
 END TYPE
+DECLARE FUNCTION g_network_connectivity_get_type() AS GType
+#DEFINE G_TYPE_NETWORK_CONNECTIVITY (g_network_connectivity_get_type())
 DECLARE FUNCTION g_network_monitor_get_type() AS GType
 #DEFINE G_TYPE_NETWORK_MONITOR (g_network_monitor_get_type())
 #DEFINE G_NETWORK_MONITOR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_NETWORK_MONITOR, GNetworkMonitor))
@@ -3825,6 +3865,8 @@ TYPE _GOutputMessage
   AS GSocketControlMessage PTR control_messages(4)
   AS guint num_control_messages
 END TYPE
+DECLARE FUNCTION g_notification_priority_get_type() AS GType
+#DEFINE G_TYPE_NOTIFICATION_PRIORITY (g_notification_priority_get_type())
 TYPE _GOutputVector
   AS gconstpointer buffer
   AS gsize size
@@ -3833,6 +3875,8 @@ TYPE _GPermission
   AS GObject parent_instance
   AS GPermissionPrivate PTR priv
 END TYPE
+DECLARE FUNCTION g_password_save_get_type() AS GType
+#DEFINE G_TYPE_PASSWORD_SAVE (g_password_save_get_type())
 DECLARE FUNCTION g_permission_get_type() AS GType
 #DEFINE G_TYPE_PERMISSION (g_permission_get_type())
 #DEFINE G_PERMISSION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_PERMISSION, GPermission))
@@ -4041,6 +4085,10 @@ TYPE _GResolverClass
   _g_reserved5 AS SUB CDECL()
   _g_reserved6 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_resolver_error_get_type() AS GType
+#DEFINE G_TYPE_RESOLVER_ERROR (g_resolver_error_get_type())
+DECLARE FUNCTION g_resolver_record_type_get_type() AS GType
+#DEFINE G_TYPE_RESOLVER_RECORD_TYPE (g_resolver_record_type_get_type())
 DECLARE FUNCTION g_resource_new_from_data(BYVAL AS GBytes PTR, BYVAL AS GError PTR PTR) AS GResource PTR
 DECLARE SUB g_resources_register(BYVAL AS GResource PTR)
 DECLARE SUB g_resources_unregister(BYVAL AS GResource PTR)
@@ -4051,6 +4099,8 @@ DECLARE FUNCTION g_resource_open_stream(BYVAL AS GResource PTR, BYVAL AS const c
 DECLARE FUNCTION g_resource_ref(BYVAL AS GResource PTR) AS GResource PTR
 DECLARE SUB g_resource_unref(BYVAL AS GResource PTR)
 DECLARE FUNCTION g_resource_load(BYVAL AS gchar PTR, BYVAL AS GError PTR PTR) AS GResource PTR
+DECLARE FUNCTION g_resource_error_get_type() AS GType
+#DEFINE G_TYPE_RESOURCE_ERROR (g_resource_error_get_type())
 DECLARE FUNCTION g_seekable_get_type() AS GType
 #DEFINE G_TYPE_SEEKABLE (g_seekable_get_type())
 #DEFINE G_SEEKABLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_SEEKABLE, GSeekable))
@@ -4389,6 +4439,8 @@ TYPE _GSocketClientClass
   _g_reserved3 AS SUB CDECL()
   _g_reserved4 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_socket_client_event_get_type() AS GType
+#DEFINE G_TYPE_SOCKET_CLIENT_EVENT (g_socket_client_event_get_type())
 DECLARE FUNCTION g_socket_connectable_get_type() AS GType
 #DEFINE G_TYPE_SOCKET_CONNECTABLE (g_socket_connectable_get_type())
 #DEFINE G_SOCKET_CONNECTABLE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_SOCKET_CONNECTABLE, GSocketConnectable))
@@ -4466,6 +4518,8 @@ TYPE _GSocketListener
   AS GObject parent_instance
   AS GSocketListenerPrivate PTR priv
 END TYPE
+DECLARE FUNCTION g_socket_family_get_type() AS GType
+#DEFINE G_TYPE_SOCKET_FAMILY (g_socket_family_get_type())
 DECLARE FUNCTION g_socket_listener_get_type() AS GType
 #DEFINE G_TYPE_SOCKET_LISTENER (g_socket_listener_get_type())
 #DEFINE G_SOCKET_LISTENER(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_SOCKET_LISTENER, GSocketListener))
@@ -4496,10 +4550,14 @@ TYPE _GSocketListenerClass
   _g_reserved5 AS SUB CDECL()
   _g_reserved6 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_socket_listener_event_get_type() AS GType
+#DEFINE G_TYPE_SOCKET_LISTENER_EVENT (g_socket_listener_event_get_type())
 TYPE _GSocketService
   AS GSocketListener parent_instance
   AS GSocketServicePrivate PTR priv
 END TYPE
+DECLARE FUNCTION g_socket_protocol_get_type() AS GType
+#DEFINE G_TYPE_SOCKET_PROTOCOL (g_socket_protocol_get_type())
 DECLARE FUNCTION g_socket_service_get_type() AS GType
 #DEFINE G_TYPE_SOCKET_SERVICE (g_socket_service_get_type())
 #DEFINE G_SOCKET_SERVICE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_SOCKET_SERVICE, GSocketService))
@@ -4522,6 +4580,8 @@ TYPE _GSocketServiceClass
   _g_reserved6 AS SUB CDECL()
 END TYPE
 TYPE GSocketSourceFunc AS FUNCTION CDECL(BYVAL AS GSocket PTR, BYVAL AS GIOCondition, BYVAL AS gpointer) AS gboolean
+DECLARE FUNCTION g_socket_type_get_type() AS GType
+#DEFINE G_TYPE_SOCKET_TYPE (g_socket_type_get_type())
 DECLARE FUNCTION g_srv_target_new(BYVAL AS const gchar PTR, BYVAL AS guint16, BYVAL AS guint16, BYVAL AS guint16) AS GSrvTarget PTR
 DECLARE FUNCTION g_srv_target_copy(BYVAL AS GSrvTarget PTR) AS GSrvTarget PTR
 DECLARE SUB g_srv_target_free(BYVAL AS GSrvTarget PTR)
@@ -4716,6 +4776,8 @@ TYPE _GThreadedSocketServiceClass
   _g_reserved4 AS SUB CDECL()
   _g_reserved5 AS SUB CDECL()
 END TYPE
+DECLARE FUNCTION g_tls_authentication_mode_get_type() AS GType
+#DEFINE G_TYPE_TLS_AUTHENTICATION_MODE (g_tls_authentication_mode_get_type())
 DECLARE FUNCTION g_tls_backend_get_type() AS GType
 #DEFINE G_TYPE_TLS_BACKEND (g_tls_backend_get_type())
 #DEFINE G_TLS_BACKEND(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_TLS_BACKEND, GTlsBackend))
@@ -4761,6 +4823,8 @@ TYPE _GTlsCertificateClass
   verify AS FUNCTION CDECL(BYVAL AS GTlsCertificate PTR, BYVAL AS GSocketConnectable PTR, BYVAL AS GTlsCertificate PTR) AS GTlsCertificateFlags
   AS gpointer padding(7)
 END TYPE
+DECLARE FUNCTION g_tls_certificate_request_flags_get_type() AS GType
+#DEFINE G_TYPE_TLS_CERTIFICATE_REQUEST_FLAGS (g_tls_certificate_request_flags_get_type())
 DECLARE FUNCTION g_tls_client_connection_get_type() AS GType
 #DEFINE G_TYPE_TLS_CLIENT_CONNECTION (g_tls_client_connection_get_type())
 #DEFINE G_TLS_CLIENT_CONNECTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_TLS_CLIENT_CONNECTION, GTlsClientConnection))
@@ -4858,6 +4922,10 @@ TYPE _GTlsDatabaseClass
   lookup_certificates_issued_by_finish AS FUNCTION CDECL(BYVAL AS GTlsDatabase PTR, BYVAL AS GAsyncResult PTR, BYVAL AS GError PTR PTR) AS GList PTR
   AS gpointer padding(15)
 END TYPE
+DECLARE FUNCTION g_tls_database_lookup_flags_get_type() AS GType
+#DEFINE G_TYPE_TLS_DATABASE_LOOKUP_FLAGS (g_tls_database_lookup_flags_get_type())
+DECLARE FUNCTION g_tls_error_get_type() AS GType
+#DEFINE G_TYPE_TLS_ERROR (g_tls_error_get_type())
 DECLARE FUNCTION g_tls_file_database_get_type() AS GType
 #DEFINE G_TYPE_TLS_FILE_DATABASE (g_tls_file_database_get_type())
 #DEFINE G_TLS_FILE_DATABASE(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_TLS_FILE_DATABASE, GTlsFileDatabase))
@@ -4902,6 +4970,8 @@ TYPE _GTlsPassword
   AS GObject parent_instance
   AS GTlsPasswordPrivate PTR priv
 END TYPE
+DECLARE FUNCTION g_tls_interaction_result_get_type() AS GType
+#DEFINE G_TYPE_TLS_INTERACTION_RESULT (g_tls_interaction_result_get_type())
 DECLARE FUNCTION g_tls_password_get_type() AS GType
 #DEFINE G_TYPE_TLS_PASSWORD (g_tls_password_get_type())
 #DEFINE G_TLS_PASSWORD(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_TLS_PASSWORD, GTlsPassword))
@@ -4926,6 +4996,8 @@ TYPE _GTlsPasswordClass
   get_default_warning AS FUNCTION CDECL(BYVAL AS GTlsPassword PTR) AS const gchar PTR
   AS gpointer padding(3)
 END TYPE
+DECLARE FUNCTION g_tls_rehandshake_mode_get_type() AS GType
+#DEFINE G_TYPE_TLS_REHANDSHAKE_MODE (g_tls_rehandshake_mode_get_type())
 DECLARE FUNCTION g_tls_server_connection_get_type() AS GType
 #DEFINE G_TYPE_TLS_SERVER_CONNECTION (g_tls_server_connection_get_type())
 #DEFINE G_TLS_SERVER_CONNECTION(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_TLS_SERVER_CONNECTION, GTlsServerConnection))
@@ -5119,6 +5191,8 @@ END TYPE
 TYPE _GVfs
   AS GObject parent_instance
 END TYPE
+DECLARE FUNCTION g_unix_socket_address_type_get_type() AS GType
+#DEFINE G_TYPE_UNIX_SOCKET_ADDRESS_TYPE (g_unix_socket_address_type_get_type())
 DECLARE FUNCTION g_vfs_get_type() AS GType
 #DEFINE G_TYPE_VFS (g_vfs_get_type())
 #DEFINE G_VFS(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_VFS, GVfs))
@@ -5215,6 +5289,8 @@ DECLARE SUB g_zlib_compressor_set_file_info(BYVAL AS GZlibCompressor PTR, BYVAL 
 TYPE _GZlibCompressorClass
   AS GObjectClass parent_class
 END TYPE
+DECLARE FUNCTION g_zlib_compressor_format_get_type() AS GType
+#DEFINE G_TYPE_ZLIB_COMPRESSOR_FORMAT (g_zlib_compressor_format_get_type())
 DECLARE FUNCTION g_zlib_decompressor_get_type() AS GType
 #DEFINE G_TYPE_ZLIB_DECOMPRESSOR (g_zlib_decompressor_get_type())
 #DEFINE G_ZLIB_DECOMPRESSOR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), G_TYPE_ZLIB_DECOMPRESSOR, GZlibDecompressor))
