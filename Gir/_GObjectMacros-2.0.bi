@@ -79,7 +79,7 @@
  _G_DEFINE_TYPE_EXTENDED_END()
 #ENDMACRO
 
-#DEFINE G_IMPLEMENT_INTERFACE(TYPE_IFACE, iface_init) g_type_add_interface_static (g_define_type_id, TYPE_IFACE, @TYPE( CAST(GInterfaceInitFunc, @iface_init), NULL, NULL ))
+#DEFINE G_IMPLEMENT_INTERFACE(TYPE_IFACE, iface_init) g_type_add_interface_static (g_define_type_id, TYPE_IFACE, @TYPE<CONST GInterfaceInfo>( CAST(GInterfaceInitFunc, @iface_init), NULL, NULL ))
 
 #MACRO _G_DEFINE_TYPE_EXTENDED_BEGIN(TypeName, type_name, TYPE_PARENT, flags)
  DECLARE SUB type_name##_init CDECL(BYVAL AS TypeName PTR)
