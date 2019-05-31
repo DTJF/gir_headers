@@ -1,3 +1,6 @@
+'       FreeBasic header file, manual-generated file
+' containing additional code-generating macros for GLib-2.0
+' LGPLv2.1 (C) 2014-2019 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
 
 '#IFNDEF G_DISABLE_DEPRECATED
 '#DEFINE G_GNUC_FUNCTION __FUNCTION__
@@ -813,11 +816,11 @@ DECLARE FUNCTION alloca() AS ZSTRING PTR
 
 #DEFINE G_VARIANT_PARSE_ERROR (g_variant_parser_get_error_quark ())
 
-#DEFINE GLIB_CHECK_VERSION_(major,minor,micro) _
-    (GLIB_MAJOR_VERSION  > (major)  ORELSE _
-     (GLIB_MAJOR_VERSION = (major)  ANDALSO GLIB_MINOR_VERSION  > (minor))  ORELSE _
-     (GLIB_MAJOR_VERSION = (major)  ANDALSO GLIB_MINOR_VERSION = (minor)  ANDALSO _
-      GLIB_MICRO_VERSION >= (micro)))
+'#DEFINE GLIB_CHECK_VERSION(major,minor,micro) _
+    '(GLIB_MAJOR_VERSION  > (major)  ORELSE _
+     '(GLIB_MAJOR_VERSION = (major)  ANDALSO GLIB_MINOR_VERSION  > (minor))  ORELSE _
+     '(GLIB_MAJOR_VERSION = (major)  ANDALSO GLIB_MINOR_VERSION = (minor)  ANDALSO _
+      'GLIB_MICRO_VERSION >= (micro)))
 
 #IFNDEF G_DISABLE_DEPRECATED
 #IFNDEF __GTK_DOC_IGNORE__
