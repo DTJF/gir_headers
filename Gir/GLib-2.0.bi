@@ -1059,6 +1059,11 @@ UNION GMutex
   AS gpointer p
   AS guint i
 END UNION
+DECLARE SUB g_mutex_clear(BYVAL AS GMutex PTR)
+DECLARE SUB g_mutex_init(BYVAL AS GMutex PTR)
+DECLARE SUB g_mutex_lock(BYVAL AS GMutex PTR)
+DECLARE FUNCTION g_mutex_trylock(BYVAL AS GMutex PTR) AS gboolean
+DECLARE SUB g_mutex_unlock(BYVAL AS GMutex PTR)
 TYPE GHookFindFunc AS FUNCTION CDECL(BYVAL AS GHook PTR, BYVAL AS gpointer) AS gboolean
 TYPE GHookCompareFunc AS FUNCTION CDECL(BYVAL AS GHook PTR, BYVAL AS GHook PTR) AS gint
 TYPE GHookMarshaller AS SUB CDECL(BYVAL AS GHook PTR, BYVAL AS gpointer)
