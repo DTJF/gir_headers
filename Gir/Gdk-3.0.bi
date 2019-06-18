@@ -2,8 +2,10 @@
 '                       ### girtobac ###
 ' LGPLv2.1 (C) 2013-2019 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
 ' Auto-translated from file /usr/share/gir-1.0/Gdk-3.0.gir
-TYPE AS GdkAtom_ PTR GdkAtom
 #INCLUDE ONCE "_GirToBac-0.0.bi"
+
+TYPE AS GdkAtom_ PTR GdkAtom
+
 ' Repository version 1.2
 #INCLUDE ONCE "GdkPixbuf-2.0.bi"
 #INCLUDE ONCE "Gio-2.0.bi"
@@ -3066,6 +3068,63 @@ TYPE _GdkEventTouchpadPinch
 END TYPE
 TYPE GdkWindowChildFunc AS FUNCTION CDECL(BYVAL AS GdkWindow PTR, BYVAL AS gpointer) AS gboolean
 TYPE GdkWindowInvalidateHandlerFunc AS SUB CDECL(BYVAL AS GdkWindow PTR, BYVAL AS cairo_region_t PTR)
+UNION GdkEvent
+  AS GdkEventType type
+  AS GdkEventAny any
+  AS GdkEventExpose expose
+  AS GdkEventVisibility visibility
+  AS GdkEventMotion motion
+  AS GdkEventButton button
+  AS GdkEventTouch touch
+  AS GdkEventScroll scroll
+  AS GdkEventKey key
+  AS GdkEventCrossing crossing
+  AS GdkEventFocus focus_change
+  AS GdkEventConfigure configure
+  AS GdkEventProperty property
+  AS GdkEventSelection selection
+  AS GdkEventOwnerChange owner_change
+  AS GdkEventProximity proximity
+  AS GdkEventDND dnd
+  AS GdkEventWindowState window_state
+  AS GdkEventSetting setting
+  AS GdkEventGrabBroken grab_broken
+  AS GdkEventTouchpadSwipe touchpad_swipe
+  AS GdkEventTouchpadPinch touchpad_pinch
+END UNION
+TYPE GdkEventFunc AS SUB CDECL(BYVAL AS GdkEvent PTR, BYVAL AS gpointer)
+DECLARE FUNCTION gdk_event_new(BYVAL AS GdkEventType) AS GdkEvent PTR
+DECLARE FUNCTION gdk_events_get_angle(BYVAL AS GdkEvent PTR, BYVAL AS GdkEvent PTR, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_events_get_center(BYVAL AS GdkEvent PTR, BYVAL AS GdkEvent PTR, BYVAL AS gdouble PTR, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_events_get_distance(BYVAL AS GdkEvent PTR, BYVAL AS GdkEvent PTR, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_event_copy(BYVAL AS const GdkEvent PTR) AS GdkEvent PTR
+DECLARE SUB gdk_event_free(BYVAL AS GdkEvent PTR)
+DECLARE FUNCTION gdk_event_get_axis(BYVAL AS const GdkEvent PTR, BYVAL AS GdkAxisUse, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_button(BYVAL AS const GdkEvent PTR, BYVAL AS guint PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_click_count(BYVAL AS const GdkEvent PTR, BYVAL AS guint PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_coords(BYVAL AS const GdkEvent PTR, BYVAL AS gdouble PTR, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_device(BYVAL AS const GdkEvent PTR) AS GdkDevice PTR
+DECLARE FUNCTION gdk_event_get_event_sequence(BYVAL AS const GdkEvent PTR) AS GdkEventSequence PTR
+DECLARE FUNCTION gdk_event_get_event_type(BYVAL AS const GdkEvent PTR) AS GdkEventType
+DECLARE FUNCTION gdk_event_get_keycode(BYVAL AS const GdkEvent PTR, BYVAL AS guint16 PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_keyval(BYVAL AS const GdkEvent PTR, BYVAL AS guint PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_root_coords(BYVAL AS const GdkEvent PTR, BYVAL AS gdouble PTR, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_screen(BYVAL AS const GdkEvent PTR) AS GdkScreen PTR
+DECLARE FUNCTION gdk_event_get_scroll_deltas(BYVAL AS const GdkEvent PTR, BYVAL AS gdouble PTR, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_scroll_direction(BYVAL AS const GdkEvent PTR, BYVAL AS GdkScrollDirection PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_source_device(BYVAL AS const GdkEvent PTR) AS GdkDevice PTR
+DECLARE FUNCTION gdk_event_get_state(BYVAL AS const GdkEvent PTR, BYVAL AS GdkModifierType PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get_time(BYVAL AS const GdkEvent PTR) AS guint32
+DECLARE FUNCTION gdk_event_get_window(BYVAL AS const GdkEvent PTR) AS GdkWindow PTR
+DECLARE SUB gdk_event_put(BYVAL AS const GdkEvent PTR)
+DECLARE SUB gdk_event_set_device(BYVAL AS GdkEvent PTR, BYVAL AS GdkDevice PTR)
+DECLARE SUB gdk_event_set_screen(BYVAL AS GdkEvent PTR, BYVAL AS GdkScreen PTR)
+DECLARE SUB gdk_event_set_source_device(BYVAL AS GdkEvent PTR, BYVAL AS GdkDevice PTR)
+DECLARE FUNCTION gdk_event_triggers_context_menu(BYVAL AS const GdkEvent PTR) AS gboolean
+DECLARE FUNCTION gdk_event_get() AS GdkEvent PTR
+DECLARE SUB gdk_event_handler_set(BYVAL AS GdkEventFunc, BYVAL AS gpointer, BYVAL AS GDestroyNotify)
+DECLARE FUNCTION gdk_event_peek() AS GdkEvent PTR
+DECLARE SUB gdk_event_request_motions(BYVAL AS const GdkEventMotion PTR)
 ' P_3
 
 DECLARE FUNCTION gdk_app_launch_context_get_type() AS GType
@@ -3193,7 +3252,7 @@ DECLARE FUNCTION gdk_display_get_default_cursor_size(BYVAL AS GdkDisplay PTR) AS
 DECLARE FUNCTION gdk_display_get_default_group(BYVAL AS GdkDisplay PTR) AS GdkWindow PTR
 DECLARE FUNCTION gdk_display_get_default_screen(BYVAL AS GdkDisplay PTR) AS GdkScreen PTR
 DECLARE FUNCTION gdk_display_get_device_manager(BYVAL AS GdkDisplay PTR) AS GdkDeviceManager PTR
-DECLARE FUNCTION gdk_display_get_event(BYVAL AS GdkDisplay PTR) AS any ptr /'GdkEvent'/ PTR
+DECLARE FUNCTION gdk_display_get_event(BYVAL AS GdkDisplay PTR) AS GdkEvent PTR
 DECLARE SUB gdk_display_get_maximal_cursor_size(BYVAL AS GdkDisplay PTR, BYVAL AS guint PTR, BYVAL AS guint PTR)
 DECLARE FUNCTION gdk_display_get_n_screens(BYVAL AS GdkDisplay PTR) AS gint
 DECLARE FUNCTION gdk_display_get_name(BYVAL AS GdkDisplay PTR) AS const gchar PTR
@@ -3205,10 +3264,10 @@ DECLARE FUNCTION gdk_display_is_closed(BYVAL AS GdkDisplay PTR) AS gboolean
 DECLARE SUB gdk_display_keyboard_ungrab(BYVAL AS GdkDisplay PTR, BYVAL AS guint32)
 DECLARE FUNCTION gdk_display_list_devices(BYVAL AS GdkDisplay PTR) AS GList PTR
 DECLARE SUB gdk_display_notify_startup_complete(BYVAL AS GdkDisplay PTR, BYVAL AS const gchar PTR)
-DECLARE FUNCTION gdk_display_peek_event(BYVAL AS GdkDisplay PTR) AS any ptr /'GdkEvent'/ PTR
+DECLARE FUNCTION gdk_display_peek_event(BYVAL AS GdkDisplay PTR) AS GdkEvent PTR
 DECLARE FUNCTION gdk_display_pointer_is_grabbed(BYVAL AS GdkDisplay PTR) AS gboolean
 DECLARE SUB gdk_display_pointer_ungrab(BYVAL AS GdkDisplay PTR, BYVAL AS guint32)
-DECLARE SUB gdk_display_put_event(BYVAL AS GdkDisplay PTR, BYVAL AS const any ptr /'const GdkEvent'/ PTR)
+DECLARE SUB gdk_display_put_event(BYVAL AS GdkDisplay PTR, BYVAL AS const GdkEvent PTR)
 DECLARE FUNCTION gdk_display_request_selection_notification(BYVAL AS GdkDisplay PTR, BYVAL AS GdkAtom) AS gboolean
 DECLARE SUB gdk_display_set_double_click_distance(BYVAL AS GdkDisplay PTR, BYVAL AS guint)
 DECLARE SUB gdk_display_set_double_click_time(BYVAL AS GdkDisplay PTR, BYVAL AS guint)
@@ -3250,34 +3309,9 @@ DECLARE FUNCTION gdk_drag_context_get_source_window(BYVAL AS GdkDragContext PTR)
 DECLARE FUNCTION gdk_drag_context_get_suggested_action(BYVAL AS GdkDragContext PTR) AS GdkDragAction
 DECLARE FUNCTION gdk_drag_context_list_targets(BYVAL AS GdkDragContext PTR) AS GList PTR
 DECLARE SUB gdk_drag_context_set_device(BYVAL AS GdkDragContext PTR, BYVAL AS GdkDevice PTR)
-UNION GdkEvent
-  AS GdkEventType type
-  AS GdkEventAny any
-  AS GdkEventExpose expose
-  AS GdkEventVisibility visibility
-  AS GdkEventMotion motion
-  AS GdkEventButton button
-  AS GdkEventTouch touch
-  AS GdkEventScroll scroll
-  AS GdkEventKey key
-  AS GdkEventCrossing crossing
-  AS GdkEventFocus focus_change
-  AS GdkEventConfigure configure
-  AS GdkEventProperty property
-  AS GdkEventSelection selection
-  AS GdkEventOwnerChange owner_change
-  AS GdkEventProximity proximity
-  AS GdkEventDND dnd
-  AS GdkEventWindowState window_state
-  AS GdkEventSetting setting
-  AS GdkEventGrabBroken grab_broken
-  AS GdkEventTouchpadSwipe touchpad_swipe
-  AS GdkEventTouchpadPinch touchpad_pinch
-END UNION
 DECLARE FUNCTION gdk_drag_protocol_get_type() AS GType
 #DEFINE GDK_TYPE_DRAG_PROTOCOL (gdk_drag_protocol_get_type())
-TYPE GdkEventFunc AS SUB CDECL(BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gpointer)
-TYPE GdkFilterFunc AS FUNCTION CDECL(BYVAL AS GdkXEvent PTR, BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gpointer) AS GdkFilterReturn
+TYPE GdkFilterFunc AS FUNCTION CDECL(BYVAL AS GdkXEvent PTR, BYVAL AS GdkEvent PTR, BYVAL AS gpointer) AS GdkFilterReturn
 DECLARE FUNCTION gdk_event_type_get_type() AS GType
 #DEFINE GDK_TYPE_EVENT_TYPE (gdk_event_type_get_type())
 DECLARE FUNCTION gdk_filter_return_get_type() AS GType
@@ -3646,7 +3680,7 @@ DECLARE SUB gdk_window_set_user_data(BYVAL AS GdkWindow PTR, BYVAL AS gpointer)
 DECLARE SUB gdk_window_shape_combine_region(BYVAL AS GdkWindow PTR, BYVAL AS const cairo_region_t PTR, BYVAL AS gint, BYVAL AS gint)
 DECLARE SUB gdk_window_show(BYVAL AS GdkWindow PTR)
 DECLARE SUB gdk_window_show_unraised(BYVAL AS GdkWindow PTR)
-DECLARE FUNCTION gdk_window_show_window_menu(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkEvent'/ PTR) AS gboolean
+DECLARE FUNCTION gdk_window_show_window_menu(BYVAL AS GdkWindow PTR, BYVAL AS GdkEvent PTR) AS gboolean
 DECLARE SUB gdk_window_stick(BYVAL AS GdkWindow PTR)
 DECLARE SUB gdk_window_thaw_toplevel_updates_libgtk_only(BYVAL AS GdkWindow PTR)
 DECLARE SUB gdk_window_thaw_updates(BYVAL AS GdkWindow PTR)
@@ -3717,9 +3751,6 @@ DECLARE SUB gdk_drop_reply(BYVAL AS GdkDragContext PTR, BYVAL AS gboolean, BYVAL
 DECLARE FUNCTION gdk_error_trap_pop() AS gint
 DECLARE SUB gdk_error_trap_pop_ignored()
 DECLARE SUB gdk_error_trap_push()
-DECLARE FUNCTION gdk_events_get_angle(BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gdouble PTR) AS gboolean
-DECLARE FUNCTION gdk_events_get_center(BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gdouble PTR, BYVAL AS gdouble PTR) AS gboolean
-DECLARE FUNCTION gdk_events_get_distance(BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS any ptr /'GdkEvent'/ PTR, BYVAL AS gdouble PTR) AS gboolean
 DECLARE FUNCTION gdk_events_pending() AS gboolean
 DECLARE SUB gdk_flush()
 DECLARE FUNCTION gdk_get_default_root_window() AS GdkWindow PTR
