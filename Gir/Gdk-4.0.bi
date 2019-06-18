@@ -2,6 +2,7 @@
 '                       ### girtobac ###
 ' LGPLv2.1 (C) 2013-2018 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
 ' Auto-translated from file /usr/share/gir-1.0/Gdk-4.0.gir
+TYPE AS GdkAtom_ PTR GdkAtom
 #INCLUDE ONCE "_GirToBac-0.0.bi"
 ' Repository version 1.2
 #INCLUDE ONCE "GdkPixbuf-2.0.bi"
@@ -22,7 +23,6 @@ ENUM
   GDK_ANCHOR_RESIZE = 48
 END ENUM
 TYPE AS _GdkAppLaunchContext GdkAppLaunchContext
-TYPE AS _GdkAtom GdkAtom
 TYPE AS LONG GdkAxisFlags
 ENUM
   GDK_AXIS_FLAG_X = 2
@@ -3050,7 +3050,7 @@ TYPE _GdkEventProperty
   AS GdkEventType type
   AS GdkWindow PTR window
   AS gint8 send_event
-  AS any ptr /'GdkAtom'/ atom
+  AS GdkAtom atom
   AS guint32 time
   AS GdkPropertyState state
 END TYPE
@@ -3058,9 +3058,9 @@ TYPE _GdkEventSelection
   AS GdkEventType type
   AS GdkWindow PTR window
   AS gint8 send_event
-  AS any ptr /'GdkAtom'/ selection
-  AS any ptr /'GdkAtom'/ target
-  AS any ptr /'GdkAtom'/ property
+  AS GdkAtom selection
+  AS GdkAtom target
+  AS GdkAtom property
   AS guint32 time
   AS GdkWindow PTR requestor
 END TYPE
@@ -3070,7 +3070,7 @@ TYPE _GdkEventOwnerChange
   AS gint8 send_event
   AS GdkWindow PTR owner
   AS GdkOwnerChange reason
-  AS any ptr /'GdkAtom'/ selection
+  AS GdkAtom selection
   AS guint32 time
   AS guint32 selection_time
 END TYPE
@@ -3187,9 +3187,9 @@ DECLARE SUB gdk_app_launch_context_set_icon(BYVAL AS GdkAppLaunchContext PTR, BY
 DECLARE SUB gdk_app_launch_context_set_icon_name(BYVAL AS GdkAppLaunchContext PTR, BYVAL AS const char PTR)
 DECLARE SUB gdk_app_launch_context_set_screen(BYVAL AS GdkAppLaunchContext PTR, BYVAL AS GdkScreen PTR)
 DECLARE SUB gdk_app_launch_context_set_timestamp(BYVAL AS GdkAppLaunchContext PTR, BYVAL AS guint32)
-DECLARE FUNCTION gdk_atom_name(BYVAL AS any ptr /'GdkAtom'/) AS gchar PTR
-DECLARE FUNCTION gdk_atom_intern(BYVAL AS const gchar PTR, BYVAL AS gboolean) AS any ptr /'GdkAtom'/
-DECLARE FUNCTION gdk_atom_intern_static_string(BYVAL AS const gchar PTR) AS any ptr /'GdkAtom'/
+DECLARE FUNCTION gdk_atom_name(BYVAL AS GdkAtom) AS gchar PTR
+DECLARE FUNCTION gdk_atom_intern(BYVAL AS const gchar PTR, BYVAL AS gboolean) AS GdkAtom
+DECLARE FUNCTION gdk_atom_intern_static_string(BYVAL AS const gchar PTR) AS GdkAtom
 DECLARE FUNCTION gdk_cursor_get_type() AS GType
 #DEFINE GDK_TYPE_CURSOR (gdk_cursor_get_type())
 #DEFINE GDK_CURSOR(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GDK_TYPE_CURSOR, GdkCursor))
@@ -3217,7 +3217,7 @@ DECLARE FUNCTION gdk_device_get_associated_device(BYVAL AS GdkDevice PTR) AS Gdk
 DECLARE FUNCTION gdk_device_get_axes(BYVAL AS GdkDevice PTR) AS GdkAxisFlags
 DECLARE FUNCTION gdk_device_get_axis(BYVAL AS GdkDevice PTR, BYVAL AS gdouble PTR, BYVAL AS GdkAxisUse, BYVAL AS gdouble PTR) AS gboolean
 DECLARE FUNCTION gdk_device_get_axis_use(BYVAL AS GdkDevice PTR, BYVAL AS guint) AS GdkAxisUse
-DECLARE FUNCTION gdk_device_get_axis_value(BYVAL AS GdkDevice PTR, BYVAL AS gdouble PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS gdouble PTR) AS gboolean
+DECLARE FUNCTION gdk_device_get_axis_value(BYVAL AS GdkDevice PTR, BYVAL AS gdouble PTR, BYVAL AS GdkAtom, BYVAL AS gdouble PTR) AS gboolean
 DECLARE FUNCTION gdk_device_get_device_type(BYVAL AS GdkDevice PTR) AS GdkDeviceType
 DECLARE FUNCTION gdk_device_get_display(BYVAL AS GdkDevice PTR) AS GdkDisplay PTR
 DECLARE FUNCTION gdk_device_get_has_cursor(BYVAL AS GdkDevice PTR) AS gboolean
@@ -3309,10 +3309,10 @@ DECLARE FUNCTION gdk_display_list_seats(BYVAL AS GdkDisplay PTR) AS GList PTR
 DECLARE SUB gdk_display_notify_startup_complete(BYVAL AS GdkDisplay PTR, BYVAL AS const gchar PTR)
 DECLARE FUNCTION gdk_display_peek_event(BYVAL AS GdkDisplay PTR) AS any ptr /'GdkEvent'/ PTR
 DECLARE SUB gdk_display_put_event(BYVAL AS GdkDisplay PTR, BYVAL AS const any ptr /'const GdkEvent'/ PTR)
-DECLARE FUNCTION gdk_display_request_selection_notification(BYVAL AS GdkDisplay PTR, BYVAL AS any ptr /'GdkAtom'/) AS gboolean
+DECLARE FUNCTION gdk_display_request_selection_notification(BYVAL AS GdkDisplay PTR, BYVAL AS GdkAtom) AS gboolean
 DECLARE SUB gdk_display_set_double_click_distance(BYVAL AS GdkDisplay PTR, BYVAL AS guint)
 DECLARE SUB gdk_display_set_double_click_time(BYVAL AS GdkDisplay PTR, BYVAL AS guint)
-DECLARE SUB gdk_display_store_clipboard(BYVAL AS GdkDisplay PTR, BYVAL AS GdkWindow PTR, BYVAL AS guint32, BYVAL AS any ptr /'GdkAtom'/ PTR, BYVAL AS gint)
+DECLARE SUB gdk_display_store_clipboard(BYVAL AS GdkDisplay PTR, BYVAL AS GdkWindow PTR, BYVAL AS guint32, BYVAL AS GdkAtom PTR, BYVAL AS gint)
 DECLARE FUNCTION gdk_display_supports_clipboard_persistence(BYVAL AS GdkDisplay PTR) AS gboolean
 DECLARE FUNCTION gdk_display_supports_cursor_alpha(BYVAL AS GdkDisplay PTR) AS gboolean
 DECLARE FUNCTION gdk_display_supports_cursor_color(BYVAL AS GdkDisplay PTR) AS gboolean
@@ -3759,7 +3759,7 @@ DECLARE SUB gdk_drag_drop(BYVAL AS GdkDragContext PTR, BYVAL AS guint32)
 DECLARE SUB gdk_drag_drop_done(BYVAL AS GdkDragContext PTR, BYVAL AS gboolean)
 DECLARE FUNCTION gdk_drag_drop_succeeded(BYVAL AS GdkDragContext PTR) AS gboolean
 DECLARE SUB gdk_drag_find_window_for_screen(BYVAL AS GdkDragContext PTR, BYVAL AS GdkWindow PTR, BYVAL AS GdkScreen PTR, BYVAL AS gint, BYVAL AS gint, BYVAL AS GdkWindow PTR PTR, BYVAL AS GdkDragProtocol PTR)
-DECLARE FUNCTION gdk_drag_get_selection(BYVAL AS GdkDragContext PTR) AS any ptr /'GdkAtom'/
+DECLARE FUNCTION gdk_drag_get_selection(BYVAL AS GdkDragContext PTR) AS GdkAtom
 DECLARE FUNCTION gdk_drag_motion(BYVAL AS GdkDragContext PTR, BYVAL AS GdkWindow PTR, BYVAL AS GdkDragProtocol, BYVAL AS gint, BYVAL AS gint, BYVAL AS GdkDragAction, BYVAL AS GdkDragAction, BYVAL AS guint32) AS gboolean
 DECLARE SUB gdk_drag_status(BYVAL AS GdkDragContext PTR, BYVAL AS GdkDragAction, BYVAL AS guint32)
 DECLARE SUB gdk_drop_finish(BYVAL AS GdkDragContext PTR, BYVAL AS gboolean, BYVAL AS guint32)
@@ -3792,24 +3792,24 @@ DECLARE FUNCTION gdk_pango_context_get_for_screen(BYVAL AS GdkScreen PTR) AS Pan
 DECLARE FUNCTION gdk_pango_layout_get_clip_region(BYVAL AS PangoLayout PTR, BYVAL AS gint, BYVAL AS gint, BYVAL AS const gint PTR, BYVAL AS gint) AS cairo_region_t PTR
 DECLARE FUNCTION gdk_pango_layout_line_get_clip_region(BYVAL AS PangoLayoutLine PTR, BYVAL AS gint, BYVAL AS gint, BYVAL AS gint PTR, BYVAL AS gint) AS cairo_region_t PTR
 DECLARE FUNCTION gdk_pixbuf_get_from_surface(BYVAL AS cairo_surface_t PTR, BYVAL AS gint, BYVAL AS gint, BYVAL AS gint, BYVAL AS gint) AS GdkPixbuf PTR
-DECLARE SUB gdk_property_change(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS gint, BYVAL AS GdkPropMode, BYVAL AS const guchar PTR, BYVAL AS gint)
-DECLARE SUB gdk_property_delete(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/)
-DECLARE FUNCTION gdk_property_get(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS gulong, BYVAL AS gulong, BYVAL AS gint, BYVAL AS any ptr /'GdkAtom'/ PTR, BYVAL AS gint PTR, BYVAL AS gint PTR, BYVAL AS guchar PTR PTR) AS gboolean
-DECLARE SUB gdk_selection_convert(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS guint32)
-DECLARE FUNCTION gdk_selection_owner_get(BYVAL AS any ptr /'GdkAtom'/) AS GdkWindow PTR
-DECLARE FUNCTION gdk_selection_owner_get_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS any ptr /'GdkAtom'/) AS GdkWindow PTR
-DECLARE FUNCTION gdk_selection_owner_set(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS guint32, BYVAL AS gboolean) AS gboolean
-DECLARE FUNCTION gdk_selection_owner_set_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS guint32, BYVAL AS gboolean) AS gboolean
-DECLARE FUNCTION gdk_selection_property_get(BYVAL AS GdkWindow PTR, BYVAL AS guchar PTR PTR, BYVAL AS any ptr /'GdkAtom'/ PTR, BYVAL AS gint PTR) AS gint
-DECLARE SUB gdk_selection_send_notify(BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS guint32)
-DECLARE SUB gdk_selection_send_notify_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS GdkWindow PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS guint32)
+DECLARE SUB gdk_property_change(BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS gint, BYVAL AS GdkPropMode, BYVAL AS const guchar PTR, BYVAL AS gint)
+DECLARE SUB gdk_property_delete(BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom)
+DECLARE FUNCTION gdk_property_get(BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS gulong, BYVAL AS gulong, BYVAL AS gint, BYVAL AS GdkAtom PTR, BYVAL AS gint PTR, BYVAL AS gint PTR, BYVAL AS guchar PTR PTR) AS gboolean
+DECLARE SUB gdk_selection_convert(BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS guint32)
+DECLARE FUNCTION gdk_selection_owner_get(BYVAL AS GdkAtom) AS GdkWindow PTR
+DECLARE FUNCTION gdk_selection_owner_get_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS GdkAtom) AS GdkWindow PTR
+DECLARE FUNCTION gdk_selection_owner_set(BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS guint32, BYVAL AS gboolean) AS gboolean
+DECLARE FUNCTION gdk_selection_owner_set_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS guint32, BYVAL AS gboolean) AS gboolean
+DECLARE FUNCTION gdk_selection_property_get(BYVAL AS GdkWindow PTR, BYVAL AS guchar PTR PTR, BYVAL AS GdkAtom PTR, BYVAL AS gint PTR) AS gint
+DECLARE SUB gdk_selection_send_notify(BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS guint32)
+DECLARE SUB gdk_selection_send_notify_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS GdkWindow PTR, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS GdkAtom, BYVAL AS guint32)
 DECLARE SUB gdk_set_allowed_backends(BYVAL AS const gchar PTR)
 DECLARE SUB gdk_set_double_click_time(BYVAL AS guint)
 DECLARE SUB gdk_set_program_class(BYVAL AS const gchar PTR)
 DECLARE SUB gdk_set_show_events(BYVAL AS gboolean)
 DECLARE FUNCTION gdk_setting_get(BYVAL AS const gchar PTR, BYVAL AS GValue PTR) AS gboolean
 DECLARE SUB gdk_synthesize_window_state(BYVAL AS GdkWindow PTR, BYVAL AS GdkWindowState, BYVAL AS GdkWindowState)
-DECLARE FUNCTION gdk_text_property_to_utf8_list_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS any ptr /'GdkAtom'/, BYVAL AS gint, BYVAL AS guchar PTR, BYVAL AS gint, BYVAL AS gchar PTR PTR PTR) AS gint
+DECLARE FUNCTION gdk_text_property_to_utf8_list_for_display(BYVAL AS GdkDisplay PTR, BYVAL AS GdkAtom, BYVAL AS gint, BYVAL AS guchar PTR, BYVAL AS gint, BYVAL AS gchar PTR PTR PTR) AS gint
 DECLARE FUNCTION gdk_threads_add_idle(BYVAL AS GSourceFunc, BYVAL AS gpointer) AS guint
 DECLARE FUNCTION gdk_threads_add_idle_full(BYVAL AS gint, BYVAL AS GSourceFunc, BYVAL AS gpointer, BYVAL AS GDestroyNotify) AS guint
 DECLARE FUNCTION gdk_threads_add_timeout(BYVAL AS guint, BYVAL AS GSourceFunc, BYVAL AS gpointer) AS guint

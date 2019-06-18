@@ -1,4 +1,4 @@
-#INCLUDE ONCE "Gir/_GLibMacros-2.0.bi"
+#INCLUDE ONCE "_GLibMacros-2.0.bi"
 
 #DEFINE GDK_ATOM_TO_POINTER(atom) (atom)
 #DEFINE GDK_POINTER_TO_ATOM(_P_) CAST(GdkAtom, (_P_))

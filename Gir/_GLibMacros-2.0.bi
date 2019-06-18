@@ -52,6 +52,10 @@
 #DEFINE G_N_ELEMENTS(arr) (UBOUND(arr) - LBOUND(arr) + 1)
 #DEFINE GPOINTER_TO_SIZE(p) (CAST(gsize, p))
 #DEFINE GSIZE_TO_POINTER(s) (CAST(gpointer, CAST(gsize, s)))
+#DEFINE GINT_TO_POINTER(_V_) CAST(gpointer, CAST(glong, _V_))
+#DEFINE GPOINTER_TO_INT(_V_) CAST(gint, CAST(glong, _V_))
+#DEFINE GUINT_TO_POINTER(_V_) CAST(gpointer, CAST(gulong, _V_))
+#DEFINE GPOINTER_TO_UINT(_V_) CAST(guint, CAST(gulong, _V_))
 
 #DEFINE G_STRUCT_OFFSET(struct_type, member) _
       (CAST(glong, OFFSETOF (struct_type, member)))
@@ -145,13 +149,6 @@
 #DEFINE g_ntohs(val) (GUINT16_FROM_BE (val))
 #DEFINE g_htonl(val) (GUINT32_TO_BE (val))
 #DEFINE g_htons(val) (GUINT16_TO_BE (val))
-
-#DEFINE GINT_TO_POINTER(_V_) CAST(gpointer, CAST(glong, _V_))
-#DEFINE GPOINTER_TO_INT(_V_) CAST(gint, CAST(glong, _V_))
-#DEFINE GUINT_TO_POINTER(_V_) CAST(gpointer, CAST(gulong, _V_))
-#DEFINE GPOINTER_TO_UINT(_V_) CAST(guint, CAST(gulong, _V_))
-#DEFINE GSIZE_TO_POINTER(_V_) CAST(gpointer, CAST(gsize, _V_))
-#DEFINE GPOINTER_TO_SIZE(_V_) CAST(gsize, (_V_)
 
 #IFDEF __GNUC__
 #UNDEF alloca
