@@ -45,46 +45,46 @@ http://www.gnu.org/licenses/lgpl-2.0.html
 Contents
 ========
 
-| Library               | Version | Notes |
-| ------------------:   | :-----: | :---- |
-| Atk-1.0.bi            | 2.22.0  |       |
-| Atspi-2.0.bi          |         |       |
-| cairo-1.0.bi          |         |       |
-| DBus-1.0.bi           |         |       |
-| DBusGLib-1.0.bi       |         |       |
-| fontconfig-2.0.bi     |         |       |
-| freetype2-2.0.bi      |         |       |
-| Gda-5.0.bi            |         |       |
-| Gdk-3.0.bi            |         |       |
-| GdkPixbuf-2.0.bi      | 2.36.5  |       |
-| GdkX11-3.0.bi         |         |       |
-| Gio-2.0.bi            |         |       |
-| GIRepository-2.0.bi   |         |       |
-| GL-1.0.bi             |         |       |
-| GLib-2.0.bi           | 2.50.3  |       |
-| GModule-2.0.bi        |         |       |
-| GObject-2.0.bi        |         |       |
-| GooCanvas-2.0.bi      |         |       |
-| Gtk-3.0.bi            | 3.22.11 |       |
-| GtkSource-3.0.bi      |         |       |
-| HarfBuzz-0.0.bi       | 1.4.2   |       |
-| JavaScriptCore-3.0.bi |         |       |
-| JSore-3.0.bi          |         |       |
-| libxml2-2.0.bi        |         |       |
-| Pango-1.0.bi          |         |       |
-| PangoCairo-1.0.bi     |         |       |
-| PangoFT2-1.0.bi       |         |       |
-| PangoXft-1.0.bi       |         |       |
-| Soup-2.4.bi           |         |       |
-| win32-1.0.bi          |         |       |
-| WebKit-3.0.bi         | 2.11.4  |       |
-| xfixes-4.0.bi         |         |       |
-| xft-2.0.bi            |         |       |
-| xlib-2.0.bi           |         |       |
-| xrandr-1.3.bi         |         |       |
-| _GirToBac-0.0.bi      |         | fundamental header with GLib specifications |
-| _GLibMacros-2.0.bi    |         | macros for GLib (not included in gir file) |
-| _GObjectMacros-2.0.bi |         | macros for GObject (not included in gir file) |
+| Library               | Notes |
+| ------------------:   | :---- |
+| Atk-1.0.bi            |       |
+| Atspi-2.0.bi          |       |
+| cairo-1.0.bi          |       |
+| DBus-1.0.bi           |       |
+| DBusGLib-1.0.bi       |       |
+| fontconfig-2.0.bi     |       |
+| freetype2-2.0.bi      |       |
+| Gda-5.0.bi            |       |
+| Gdk-3.0.bi            |       |
+| GdkPixbuf-2.0.bi      |       |
+| GdkX11-3.0.bi         |       |
+| Gio-2.0.bi            |       |
+| GIRepository-2.0.bi   |       |
+| GL-1.0.bi             |       |
+| GLib-2.0.bi           |       |
+| GModule-2.0.bi        |       |
+| GObject-2.0.bi        |       |
+| GooCanvas-2.0.bi      |       |
+| Gtk-3.0.bi            |       |
+| GtkSource-3.0.bi      |       |
+| HarfBuzz-0.0.bi       |       |
+| JavaScriptCore-3.0.bi |       |
+| JSore-3.0.bi          |       |
+| libxml2-2.0.bi        |       |
+| Pango-1.0.bi          |       |
+| PangoCairo-1.0.bi     |       |
+| PangoFT2-1.0.bi       |       |
+| PangoXft-1.0.bi       |       |
+| Soup-2.4.bi           |       |
+| win32-1.0.bi          |       |
+| WebKit-3.0.bi         |       |
+| xfixes-4.0.bi         |       |
+| xft-2.0.bi            |       |
+| xlib-2.0.bi           |       |
+| xrandr-1.3.bi         |       |
+| _GirToBac-0.0.bi      | fundamental header with GLib specifications |
+| _GLibMacros-2.0.bi    | macros for GLib (not included in gir file) |
+| _GObjectMacros-2.0.bi | macros for GObject (not included in gir file) |
 
 
 Usage
