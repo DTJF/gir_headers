@@ -24,7 +24,7 @@ will get added by time.
 Licence:
 ========
 
-Copyright &copy; 2014-2019 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
+Copyright &copy; 2014-2020 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
 
 This project is free software; you can redistribute it and/or modify it
 under the terms of the Lesser GNU General Public License version 2 as
@@ -52,7 +52,6 @@ Contents
 | cairo-1.0.bi          |         |       |
 | DBus-1.0.bi           |         |       |
 | DBusGLib-1.0.bi       |         |       |
-| dir.txt               |         |       |
 | fontconfig-2.0.bi     |         |       |
 | freetype2-2.0.bi      |         |       |
 | Gda-5.0.bi            |         |       |
