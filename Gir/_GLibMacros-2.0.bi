@@ -1,6 +1,6 @@
 '       FreeBasic header file, manual-generated file
 ' containing additional code-generating macros for GLib-2.0
-' LGPLv2.1 (C) 2014-2019 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
+' LGPLv2.1 (C) 2014-2021 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
 
 '#IFNDEF G_DISABLE_DEPRECATED
 '#DEFINE G_GNUC_FUNCTION __FUNCTION__

@@ -1,6 +1,6 @@
 '       FreeBasic header file, manual-generated file
 '              containing types for GLib-2.0
-' LGPLv2.1 (C) 2014-2019 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
+' LGPLv2.1 (C) 2014-2021 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
 
 TYPE AS  ZSTRING gchar, char
 TYPE AS     BYTE gint8
@@ -17,25 +17,26 @@ TYPE AS   DOUBLE gdouble
 TYPE AS  INTEGER gssize, ssize_t, goffset
 TYPE AS UINTEGER gsize, size_t
 
-#IF __FB_VER_MAJOR__ >= 1 AND __FB_VER_MINOR__ >= 07
-TYPE AS CVA_LIST va_list
+#INCLUDE ONCE "crt/stdio.bi"
+#INCLUDE ONCE "crt/time.bi"
+#UNDEF va_list
+#IF __FB_VERSION__ < "1.07"
+ TYPE AS ANY PTR va_list
 #ELSE
-TYPE AS ANY PTR va_list
+ TYPE AS CVA_LIST va_list
 #ENDIF
+#IFNDEF FILE
+ TYPE AS ANY PTR FILE
+#ENDIF
+#UNDEF TRUE
+#UNDEF FALSE
+CONST AS gboolean TRUE = 1, FALSE = 0
+#UNDEF NULL
+CONST AS ANY PTR NULL = 0
 
 TYPE AS   ZSTRING PTR utf8, filename
 TYPE AS       ANY PTR gpointer
 TYPE AS CONST ANY PTR gconstpointer
-
-#IFNDEF NULL
-#DEFINE NULL CAST(ANY PTR, 0)
-#ENDIF
-#IFNDEF FALSE
-#DEFINE FALSE 0
-#ENDIF
-#IFNDEF TRUE
-#DEFINE TRUE 1 ''NOT FALSE
-#ENDIF
 
 #IFDEF __FB_64BIT__
 #DEFINE G_MININT G_MININT64
