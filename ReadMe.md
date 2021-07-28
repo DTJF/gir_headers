@@ -24,7 +24,7 @@ will get added by time.
 Licence:
 ========
 
-Copyright &copy; 2014-2020 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
+Copyright &copy; 2014-2021 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
 
 This project is free software; you can redistribute it and/or modify it
 under the terms of the Lesser GNU General Public License version 2 as
@@ -41,50 +41,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-
 1301, USA. For further details please refer to:
 http://www.gnu.org/licenses/lgpl-2.0.html
 
-
-Contents
-========
-
-| Library               | Notes |
-| ------------------:   | :---- |
-| Atk-1.0.bi            |       |
-| Atspi-2.0.bi          |       |
-| cairo-1.0.bi          |       |
-| DBus-1.0.bi           |       |
-| DBusGLib-1.0.bi       |       |
-| fontconfig-2.0.bi     |       |
-| freetype2-2.0.bi      |       |
-| Gda-5.0.bi            |       |
-| Gdk-3.0.bi            |       |
-| GdkPixbuf-2.0.bi      |       |
-| GdkX11-3.0.bi         |       |
-| Gio-2.0.bi            |       |
-| GIRepository-2.0.bi   |       |
-| GL-1.0.bi             |       |
-| GLib-2.0.bi           |       |
-| GModule-2.0.bi        |       |
-| GObject-2.0.bi        |       |
-| GooCanvas-2.0.bi      |       |
-| Gtk-3.0.bi            |       |
-| GtkSource-3.0.bi      |       |
-| HarfBuzz-0.0.bi       |       |
-| JavaScriptCore-3.0.bi |       |
-| JSore-3.0.bi          |       |
-| libxml2-2.0.bi        |       |
-| Pango-1.0.bi          |       |
-| PangoCairo-1.0.bi     |       |
-| PangoFT2-1.0.bi       |       |
-| PangoXft-1.0.bi       |       |
-| Soup-2.4.bi           |       |
-| win32-1.0.bi          |       |
-| WebKit-3.0.bi         |       |
-| xfixes-4.0.bi         |       |
-| xft-2.0.bi            |       |
-| xlib-2.0.bi           |       |
-| xrandr-1.3.bi         |       |
-| _GirToBac-0.0.bi      | fundamental header with GLib specifications |
-| _GLibMacros-2.0.bi    | macros for GLib (not included in gir file) |
-| _GObjectMacros-2.0.bi | macros for GObject (not included in gir file) |
 
 
 Usage
@@ -108,8 +64,9 @@ For other platforms (win32/64) you have to follow the installation
 instructions on the related library web-sites. This may include that
 you have to care about dependencies by yourself. Ie. for Gtk-3.0.bi
 you'll also need further binaries like GLib-2.0, Pango-1.0, Gdk-3.0 and
-others. Take care that you install matching versions! (Nice guys made
-bundle installers for Gtk, handling this stuff.)
+others. Take care that you install matching versions! (Check the Msys2
+install. Otherwise perhaps a nice guy made a bundle installers for your
+desired library.)
 
 Once the binaries are installed, you can benefit from this project.
 Just place the headers folder (named Gir) in the FreeBASIC include
@@ -117,7 +74,8 @@ path. All headers have to be in one folder, you must not rename nor
 delete any file (GI demand)! The location of the FreeBASIC include path
 depends on your compiler installation, try
 
-    /usr/local/include/freebasic    # LINUX
+    /usr/local/include/freebasic    # LINUX sh script install
+    /usr/include/freebasic          # LINUX package manager install
     C:\programs\freebasic\inc       # win
 
 Finally to make FB compile and link against the library, you add a
@@ -154,7 +112,7 @@ translations, ie. Python, Vala, JavaScript, ...
 
 That's why Gnome developers introduced the [GObject Introspection
 (GI)](https://wiki.gnome.org/Projects/GObjectIntrospection) technology.
-Together with the library a further file with suffix `.gir` is shipped,
+A further file with suffix `.gir` is shipped together with the library,
 containing abstract informations to generate a language binding in an
 automated manner. The tool [GirToBac](https://github.com/DTJF/girtobac)
 reads that file and auto-creates an FB header.
