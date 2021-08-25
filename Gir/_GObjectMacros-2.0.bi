@@ -75,28 +75,31 @@
 
 #DEFINE G_IMPLEMENT_INTERFACE(TYPE_IFACE, iface_init) g_type_add_interface_static(g_define_type_id, TYPE_IFACE, @TYPE<CONST GInterfaceInfo>( CAST(GInterfaceInitFunc, @iface_init), NULL, NULL ))
 
-#MACRO _G_DEFINE_TYPE_EXTENDED_END()
-  RETURN g_define_type_id
- END FUNCTION '/* closes type_name##_get_type_once()
-#ENDMACRO
-
 #MACRO _G_DEFINE_INTERFACE_EXTENDED_BEGIN(TypeName, type_name)
  DECLARE SUB type_name##_default_init CDECL(BYVAL AS TypeName##Interface PTR)
 
  FUNCTION type_name##_get_type CDECL()AS GType
-   STATIC AS gsize static_g_define_type_id = 0
-   IF g_once_init_enter(@static_g_define_type_id) THEN
-     VAR g_define_type_id = _
-         g_type_register_static_simple( _
-           G_TYPE_INTERFACE _
-         , g_intern_static_string(@#TypeName) _
-         , SIZEOF(TypeName##Interface) _
-         , CAST(GClassInitFunc, @type_name##_default_init) _
-         , 0 _
-         , CAST(GInstanceInitFunc, NULL) _
-         , CAST(GTypeFlags, 0))
-     IF TYPE_PREREQ <> G_TYPE_INVALID THEN _
-       g_type_interface_add_prerequisite(g_define_type_id, TYPE_PREREQ)
+  STATIC AS gsize static_g_define_type_id = 0
+  IF g_once_init_enter(@static_g_define_type_id) THEN
+   VAR g_define_type_id = _
+    g_type_register_static_simple( _
+      G_TYPE_INTERFACE _
+    , g_intern_static_string(@#TypeName) _
+    , SIZEOF(TypeName##Interface) _
+    , CAST(GClassInitFunc, @type_name##_default_init) _
+    , 0 _
+    , CAST(GInstanceInitFunc, NULL) _
+    , CAST(GTypeFlags, 0))
+   IF TYPE_PREREQ <> G_TYPE_INVALID THEN _
+    g_type_interface_add_prerequisite(g_define_type_id, TYPE_PREREQ)
+#ENDMACRO
+#MACRO _G_DEFINE_INTERFACE_EXTENDED_END()
+'/* following custom code
+   END IF
+   g_once_init_leave (@static_g_define_type_id, g_define_type_id)
+  END IF
+  RETURN static_g_define_type_id
+ END FUNCTION
 #ENDMACRO
 
 #DEFINE G_DEFINE_BOXED_TYPE(TypeName, type_name, copy_func, free_func) G_DEFINE_BOXED_TYPE_WITH_CODE(TypeName, type_name, copy_func, free_func, )
@@ -120,9 +123,10 @@
 
  FUNCTION type_name##_get_type_once()AS GType
   VAR g_define_type_id = _
-   g_boxed_type_register_static(g_intern_static_string(#TypeName) _
-                              , CAST(GBoxedCopyFunc, copy_func) _
-                              , CAST(GBoxedFreeFunc, free_func))
+   g_boxed_type_register_static( _
+     g_intern_static_string(#TypeName) _
+   , CAST(GBoxedCopyFunc, copy_func) _
+   , CAST(GBoxedFreeFunc, free_func))
 ' /* custom code follows */
 #ENDMACRO
 
@@ -406,6 +410,7 @@ FUNCTION type_name##_get_type()AS GType
  '/* Prelude goes here */
 #ENDMACRO
 
+
 '/* Added for _G_DEFINE_TYPE_EXTENDED_WITH_PRELUDE */
 #MACRO _G_DEFINE_TYPE_EXTENDED_BEGIN_REGISTER(TypeName, type_name, TYPE_PARENT, flags)
   IF g_once_init_enter(@static_g_define_type_id) THEN
@@ -418,20 +423,24 @@ FUNCTION type_name##_get_type()AS GType
  FUNCTION type_name##_get_type_once()AS GType
   VAR g_define_type_id = _
    g_type_register_static_simple(TYPE_PARENT _
-     , g_intern_static_string(#TypeName) _
-     , SIZEOF(TypeName##Class) _
-     , CAST(GClassInitFunc, @type_name##_class_intern_init) _
-     , SIZEOF(TypeName) _
-     , CAST(GInstanceInitFunc, @type_name##_init) _
-     , CAST(GTypeFlags, flags))
-    '{ /* custom code follows
+   , g_intern_static_string(#TypeName) _
+   , SIZEOF(TypeName##Class) _
+   , CAST(GClassInitFunc, @type_name##_class_intern_init) _
+   , SIZEOF(TypeName) _
+   , CAST(GInstanceInitFunc, @type_name##_init) _
+   , CAST(GTypeFlags, flags))
+  '{ /* custom code follows
+#ENDMACRO
+#MACRO _G_DEFINE_TYPE_EXTENDED_END()
+  RETURN g_define_type_id
+ END FUNCTION '/* closes type_name##_get_type_once()
 #ENDMACRO
 
 #MACRO _G_DEFINE_TYPE_EXTENDED_CLASS_INIT(TypeName, type_name)
 SUB type_name##_class_intern_init(BYVAL klass AS gpointer)
  type_name##_parent_class = g_type_class_peek_parent(klass)
  IF TypeName##_private_offset <> 0 THEN _
-   g_type_class_adjust_private_offset(klass, @TypeName##_private_offset)
+  g_type_class_adjust_private_offset(klass, @TypeName##_private_offset)
  type_name##_class_init(CAST(TypeName##Class PTR, klass))
 END SUB
 #ENDMACRO
@@ -451,7 +460,7 @@ END SUB
   (TypeName##_private_offset + (OFFSETOF(TypeName##Private, FIELD)))
 
 #DEFINE G_PRIVATE_FIELD_P(TypeName, inst, field_name) _
-  G_STRUCT_MEMBER_P(inst, G_PRIVATE_OFFSET (TypeName, field_name))
+  G_STRUCT_MEMBER_P(inst, G_PRIVATE_OFFSET(TypeName, field_name))
 
 #DEFINE G_PRIVATE_FIELD(TypeName, inst, field_type, field_name) _
   G_STRUCT_MEMBER(field_type, inst, G_PRIVATE_OFFSET(TypeName, field_name))
@@ -459,3 +468,10 @@ END SUB
 #DEFINE G_DECLARE_FINAL_TYPE(a,b,c,d,e) #PRINT macro G_DECLARE_FINAL_TYPE() NOT tranlatable
 #DEFINE G_DECLARE_DERIVABLE_TYPE(a,b,c,d,e) #PRINT macro G_DECLARE_DERIVABLE_TYPE() NOT tranlatable
 #DEFINE G_DECLARE_INTERFACE(a,b,c,d,e) #PRINT macro G_DECLARE_INTERFACE() NOT tranlatable
+
+#define G_DEFINE_FINAL_TYPE(TN, t_n, T_P) _
+  G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, G_TYPE_FLAG_FINAL, ) 'GLIB_AVAILABLE_MACRO_IN_2_70
+#define G_DEFINE_FINAL_TYPE_WITH_CODE(TN, t_n, T_P, _C_) _
+  _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, G_TYPE_FLAG_FINAL) : _C_ : _G_DEFINE_TYPE_EXTENDED_END() 'GLIB_AVAILABLE_MACRO_IN_2_70
+#define G_DEFINE_FINAL_TYPE_WITH_PRIVATE(TN, t_n, T_P) _
+  G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, G_TYPE_FLAG_FINAL, G_ADD_PRIVATE (TN)) 'GLIB_AVAILABLE_MACRO_IN_2_70
