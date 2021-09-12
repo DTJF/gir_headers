@@ -4,8 +4,11 @@ Folder Gir
 This folder contains the library bindings (header files) and some
 special files, which names are starting by an underscore character:
 
-- the fundamental header `*.GirToBac` (root of header tree)
+- the fundamental header `*._GirToBac-0.0.bi` (root of header tree)
 - manually translated macros
+    * `*._GLibMacros-2.0.bi`
+    * `*._GObjectMacros-2.0.bi`
+    * `*._GdkMacros-2.0.bi`
 
 Since the GObjectIntrospection source files `*.gir` contain the main
 part of a language binding (type definitions, constants, functions and

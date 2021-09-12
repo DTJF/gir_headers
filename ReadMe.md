@@ -24,7 +24,7 @@ will get added by time.
 Licence:
 ========
 
-Copyright &copy; 2014-2021 by Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net
+Copyright &copy; 2014-2021 by `Thomas{ doT ]Freiherr[ At ]gmx[ DoT }net`
 
 This project is free software; you can redistribute it and/or modify it
 under the terms of the Lesser GNU General Public License version 2 as
@@ -104,7 +104,7 @@ further type check during translation isn't necessary. So translations
 of single headers can get generated on the fly, with low installation
 efforts.
 
-Anyway, all these tools need a lot of manuall fine-tuning for the final
+Anyway, all these tools need a lot of manual fine-tuning for the final
 FB header, since they get C source code as input, including constructs
 that are difficult to translate, ie. like inline functions or code
 generating macros. The same problem occurs for all language binding
