@@ -1,6 +1,6 @@
 '       FreeBasic header file, manual-generated file
 ' containing additional code-generating macros for GObject-2.0
-' LGPLv2.1 (C) 2014-2021 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
+' LGPLv2.1 (C) 2014-2022 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
 
 #DEFINE G_TYPE_FUNDAMENTAL(type) (g_type_fundamental_(type))
 #DEFINE G_TYPE_INVALID G_TYPE_MAKE_FUNDAMENTAL (0)

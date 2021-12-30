@@ -1,6 +1,6 @@
 '       FreeBasic header file, manual-generated file
 '              containing types for GLib-2.0
-' LGPLv2.1 (C) 2014-2021 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
+' LGPLv2.1 (C) 2014-2022 by Thomas[ dot }Freiherr[ at ]gmx[ dot }net
 
 TYPE AS  ZSTRING gchar, char
 TYPE AS     BYTE gint8
